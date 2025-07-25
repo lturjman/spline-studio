@@ -25,7 +25,7 @@ export default function Variants() {
         animate={isOpen ? "open" : "closed"}
         custom={height}
         ref={containerRef}
-        className="h-20 flex items-center justify-between w-full"
+        className="h-20 flex items-center justify-between w-full px-4"
       >
         <h1>SPLINE</h1>
 
@@ -115,7 +115,7 @@ const sidebarVariants = {
   }),
   closed: {
     clipPath:
-      "circle(30px at calc(100% - calc(var(--spacing) * 10)) calc(var(--spacing) * 10))",
+      "circle(30px at calc(100% - calc(var(--spacing) * 14)) calc(var(--spacing) * 10))",
     transition: {
       delay: 0.2,
       type: "spring",
