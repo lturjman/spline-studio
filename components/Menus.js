@@ -34,7 +34,7 @@ export default function Variants() {
           className="absolute top-0 right-0 bottom-0  bg-zinc-800 pt-20 z-10"
           variants={sidebarVariants}
         >
-          <Navigation />
+          <Navigation closeMenu={() => setIsOpen(false)} />
         </motion.div>
       </motion.nav>
     </div>
@@ -50,10 +50,15 @@ const navVariants = {
   },
 };
 
-const Navigation = () => (
+const Navigation = ({ closeMenu }) => (
   <motion.ul className="list-none p-5" variants={navVariants}>
     {menuItems.map((item, i) => (
-      <MenuItem key={item.path} item={item} color={colors[i % colors.length]} />
+      <MenuItem
+        key={item.path}
+        item={item}
+        color={colors[i % colors.length]}
+        closeMenu={closeMenu}
+      />
     ))}
   </motion.ul>
 );
@@ -77,7 +82,7 @@ const itemVariants = {
 
 const colors = ["#FFFFFF"];
 
-const MenuItem = ({ item, color }) => {
+const MenuItem = ({ item, color, closeMenu }) => {
   const border = `2px solid ${color}`;
 
   return (
@@ -88,7 +93,10 @@ const MenuItem = ({ item, color }) => {
       whileTap={{ scale: 0.95 }}
     >
       <Link href={item.path}>
-        <span className="text-white text-6xl font-semibold hover:text-emerald-300">
+        <span
+          onClick={closeMenu}
+          className="text-white text-6xl font-semibold hover:text-emerald-300"
+        >
           {item.label}
         </span>
       </Link>

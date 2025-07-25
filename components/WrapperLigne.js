@@ -5,9 +5,9 @@ import Image from "next/image";
 import { useState } from "react";
 
 const images = [
-  { id: 1, src: "/1.jpg", label: "Photo film 1" },
-  { id: 2, src: "/2.jpg", label: "Photo film 2" },
-  { id: 3, src: "/3.jpg", label: "Photo film 3" },
+  { id: 1, src: "/1.jpg", label: "" },
+  { id: 2, src: "/2.jpg", label: "" },
+  { id: 3, src: "/3.jpg", label: "" },
 ];
 
 export default function VerticalGallery() {
