@@ -47,7 +47,7 @@ export default function ContactForm() {
           <motion.form
             key="form"
             onSubmit={executeRecaptchaAndSubmit}
-            className="p-6 bg-white rounded-2xl shadow-xl space-y-4"
+            className="p-6 bg-white rounded-2xl shadow-xl space-y-2"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -50 }}
@@ -56,7 +56,7 @@ export default function ContactForm() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700 mb-1"
+                className="block text-sm font-medium text-gray-700 mb-1 px-2"
               >
                 Adresse Email
               </label>
@@ -65,19 +65,20 @@ export default function ContactForm() {
                 type="email"
                 name="email"
                 className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-300 transition"
-                placeholder="ton@email.com"
+                placeholder="johnDoe@email.com"
               />
               <ValidationError
                 prefix="Email"
                 field="email"
                 errors={state.errors}
+                className="text-red-600 text-xs mt-1 font-semibold px-2"
               />
             </div>
 
             <div>
               <label
                 htmlFor="phone"
-                className="block text-sm font-medium text-gray-700 mb-1"
+                className="block text-sm font-medium text-gray-700 mb-1 px-2"
               >
                 Téléphone
               </label>
@@ -86,19 +87,20 @@ export default function ContactForm() {
                 type="phone"
                 name="phone"
                 className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-300 transition"
-                placeholder="06*********"
+                placeholder="0612345678"
               />
               <ValidationError
                 prefix="phone"
                 field="phone"
                 errors={state.errors}
+                className="text-red-600 text-xs mt-1 font-semibold px-2"
               />
             </div>
 
             <div>
               <label
                 htmlFor="subject"
-                className="block text-sm font-medium text-gray-700 mb-1"
+                className="block text-sm font-medium text-gray-700 mb-1 px-2"
               >
                 Objet
               </label>
@@ -113,13 +115,14 @@ export default function ContactForm() {
                 prefix="subject"
                 field="subject"
                 errors={state.errors}
+                className="text-red-600 text-xs mt-1 font-semibold px-2"
               />
             </div>
 
             <div>
               <label
                 htmlFor="message"
-                className="block text-sm font-medium text-gray-700 mb-1"
+                className="block text-sm font-medium text-gray-700 mb-1 px-2"
               >
                 Message
               </label>
@@ -128,12 +131,13 @@ export default function ContactForm() {
                 name="message"
                 rows="5"
                 className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-300 transition"
-                placeholder="Ton message ici..."
+                placeholder="Bonjour, ..."
               />
               <ValidationError
                 prefix="Message"
                 field="message"
                 errors={state.errors}
+                className="text-red-600 text-xs font-semibold p-2"
               />
             </div>
 
