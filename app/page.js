@@ -5,9 +5,15 @@ import Parallax from "../components/ParallaxContent";
 import WrapperColonne from "../components/WrapperColonne";
 import WrapperLigne from "../components/WrapperLigne";
 
-export default function Home() {
+import { createClient } from "@/prismicio";
+
+export default async function Home() {
+  const client = createClient();
+  const page = await client.getSingle("home");
+
   return (
     <div>
+      <h1>{page.data.title}</h1>
       <WavyText />
       <video
         className="h-[70vh]"
