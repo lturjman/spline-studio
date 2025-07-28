@@ -8,7 +8,7 @@ const RECAPTCHA_KEY = "6LezkpErAAAAAJOoz0ea_1wKT1fpzWuMCJbnggQa";
 export default function Contact() {
   return (
     <div>
-      <FormspreeProvider project="spline-studio">
+      <FormspreeProvider>
         <GoogleReCaptchaProvider
           reCaptchaKey={RECAPTCHA_KEY}
           scriptProps={{

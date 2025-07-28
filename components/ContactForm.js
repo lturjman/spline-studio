@@ -6,13 +6,15 @@ import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 export default function ContactForm() {
   const { executeRecaptcha } = useGoogleReCaptcha();
-  const [state, handleSubmit] = useForm("mpwlrppq");
+  const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORM);
   if (state.succeeded) {
     return <p>Votre message à bien été envoyé !</p>;
   }
 
   const executeRecaptchaAndSubmit = async (e) => {
     e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
 
     if (!executeRecaptcha) {
       console.log("reCAPTCHA pas encore chargé");
@@ -20,9 +22,9 @@ export default function ContactForm() {
     }
 
     const token = await executeRecaptcha("form_submit");
-
     console.log("Token reCAPTCHA :", token);
-    handleSubmit(e);
+    data["g-recaptcha-response"] = token;
+    handleSubmit(data);
   };
 
   return (
