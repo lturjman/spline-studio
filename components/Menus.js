@@ -4,6 +4,8 @@ import * as motion from "motion/react-client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
+import Logo from "@/components/Logos";
+
 const menuItems = [
   { label: "Accueil", path: "/" },
   { label: "Spline Studio", path: "/splinestudio" },
@@ -27,7 +29,9 @@ export default function Variants() {
         ref={containerRef}
         className="h-20 flex items-center justify-between w-full px-4"
       >
-        <h1>SPLINE</h1>
+        <div>
+          <Logo />
+        </div>
 
         <MenuToggle toggle={() => setIsOpen(!isOpen)} />
         <motion.div
