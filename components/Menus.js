@@ -4,7 +4,7 @@ import * as motion from "motion/react-client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
-import Logo from "@/components/Logos";
+import Logo from "@/components/DynamicLogo";
 
 const menuItems = [
   { label: "Accueil", path: "/" },
@@ -21,27 +21,25 @@ export default function Variants() {
   const { height } = useDimensions(containerRef);
 
   return (
-    <div>
-      <motion.nav
-        initial={false}
-        animate={isOpen ? "open" : "closed"}
-        custom={height}
-        ref={containerRef}
-        className="h-20 flex items-center justify-between w-full px-4"
-      >
-        <div>
-          <Logo />
-        </div>
+    <motion.nav
+      initial={false}
+      animate={isOpen ? "open" : "closed"}
+      custom={height}
+      ref={containerRef}
+      className="h-20 fixed bg-white shadow-lg z-20 flex items-center justify-between w-full px-4"
+    >
+      <div>
+        <Logo />
+      </div>
 
-        <MenuToggle toggle={() => setIsOpen(!isOpen)} />
-        <motion.div
-          className="absolute top-0 right-0 bottom-0  bg-zinc-800 pt-20 z-10"
-          variants={sidebarVariants}
-        >
-          <Navigation closeMenu={() => setIsOpen(false)} />
-        </motion.div>
-      </motion.nav>
-    </div>
+      <MenuToggle toggle={() => setIsOpen(!isOpen)} />
+      <motion.div
+        className="absolute h-screen top-0 right-0 bottom-0  bg-zinc-800 pt-20 z-10"
+        variants={sidebarVariants}
+      >
+        <Navigation closeMenu={() => setIsOpen(false)} />
+      </motion.div>
+    </motion.nav>
   );
 }
 

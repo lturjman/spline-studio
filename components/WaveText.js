@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 
 export default function WavyText() {
   const containerRef = useRef(null);
-  const chars = Array.from("production");
+  const chars = Array.from("audiovisuelle");
 
   useEffect(() => {
     const container = containerRef.current;
@@ -18,7 +18,7 @@ export default function WavyText() {
 
     animate(
       charElements,
-      { y: [-10, 10] },
+      { y: [-5, 5] },
       {
         repeat: Infinity,
         repeatType: "mirror",
@@ -33,11 +33,11 @@ export default function WavyText() {
 
   return (
     <div
-      className="flex justify-center items-center w-full invisible"
+      className="flex justify-center items-center w-full invisible mt-10"
       ref={containerRef}
     >
       <h1 className="text-4xl font-bold ">
-        Agence de{" "}
+        Agence de production{" "}
         <span className="wavy inline-flex">
           {chars.map((char, i) => (
             <span
@@ -47,7 +47,8 @@ export default function WavyText() {
               {char}
             </span>
           ))}
-          .
+          <span className="split-char inline-block">&nbsp;</span>
+          singulière.
         </span>
       </h1>
     </div>
