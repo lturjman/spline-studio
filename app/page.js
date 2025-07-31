@@ -14,16 +14,23 @@ export default async function Home() {
 
   return (
     <div className="">
-      <div className="relative w-screen h-[90vh] md:h-[70vh] overflow-hidden">
-        {/* Croix placée derrière */}
-        <div className="absolute right-0 top-20 z-10">
+      <div className="relative w-screen h-[90vh] md:h-[90vh] overflow-hidden">
+        <div className="absolute right-0 top-20 z-0">
           <MovingCross />
         </div>
-        <div>test</div>
-
-        {/* Vidéo au-dessus */}
+        <div className="absolute z-15 top-10 w-full justify-center items-center mt-80 flex flex-col">
+          <Image
+            src="/LogoBlanc.svg"
+            alt="Logo Spline Studio"
+            width={300}
+            height={100}
+          />
+          <div>
+            <WavyText />
+          </div>
+        </div>
         <video
-          className="relative z-20 w-full h-full object-cover md:w-auto md:h-full md:translate-x-[-5vw]"
+          className="relative z-10 w-full h-full object-cover md:w-auto md:h-full md:translate-x-[-5vw]"
           src="/SplineStudioPresentation.mp4"
           autoPlay
           muted
@@ -32,7 +39,6 @@ export default async function Home() {
         />
       </div>
 
-      <WavyText />
       <MovingCross />
       <Parallax />
       <div className="flex justify-center items-center">

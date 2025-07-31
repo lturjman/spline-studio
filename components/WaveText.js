@@ -33,12 +33,12 @@ export default function WavyText() {
 
   return (
     <div
-      className="flex justify-center items-center w-full invisible mt-10"
+      className="flex justify-center items-center w-full invisible mt-10 px-4 text-center"
       ref={containerRef}
     >
-      <h1 className="text-4xl font-bold ">
+      <h1 className="text-2xl md:text-5xl font-bold leading-tight break-words max-w-5xl text-white">
         Agence de production{" "}
-        <span className="wavy inline-flex">
+        <span className="wavy inline-flex flex-wrap justify-center">
           {chars.map((char, i) => (
             <span
               key={i}
