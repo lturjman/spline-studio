@@ -4,15 +4,15 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
-const customIcon = new L.Icon({
-  iconUrl: "/pin.png",
-  iconSize: [30],
-  iconAnchor: [15, 30],
-  popupAnchor: [0, -30],
-});
-const position = [45.7736, 4.8256];
-
 export default function ContactMap() {
+  const customIcon = new L.Icon({
+    iconUrl: "/pin.png",
+    iconSize: [30],
+    iconAnchor: [15, 30],
+    popupAnchor: [0, -30],
+  });
+  const position = [45.7736, 4.8256];
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
