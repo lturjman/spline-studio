@@ -1,4 +1,4 @@
-import ContactMapWrapper from "./ContactMapWrapper";
+import ContactMap from "@/components/ContactMap";
 import ContactForm from "@/components/ContactForm";
 
 export default function Contact() {
@@ -11,7 +11,7 @@ export default function Contact() {
           <ContactForm />
         </div>
 
-        <ContactMapWrapper />
+        <ContactMap />
       </div>
     </div>
   );
