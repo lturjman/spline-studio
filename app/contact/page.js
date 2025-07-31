@@ -1,5 +1,13 @@
-import ContactMap from "@/components/ContactMap";
 import ContactForm from "@/components/ContactForm";
+import dynamic from "next/dynamic";
+
+// Import dynamique du composant client uniquement côté navigateur
+const MapWrapper = dynamic(() => import("./MapWrapper"), {
+  ssr: false,
+  loading: () => (
+    <div className="h-[60vh] bg-gray-200 rounded-2xl animate-pulse" />
+  ),
+});
 
 export default function Contact() {
   return (
@@ -9,8 +17,7 @@ export default function Contact() {
         <div>
           <ContactForm />
         </div>
-
-        <ContactMap />
+        <MapWrapper />
       </div>
     </div>
   );
