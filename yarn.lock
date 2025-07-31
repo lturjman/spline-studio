@@ -103,6 +103,22 @@
     "@eslint/core" "^0.15.1"
     levn "^0.4.1"
 
+"@formspree/core@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@formspree/core/-/core-4.0.0.tgz#3425bdcbcf8669c1540f66adc9158adcb075096d"
+  integrity sha512-geNlUut5nME1Ztej5Pzx1BrlQ1fFIcJYIqmF+Vm0jaUbpZxjXvt7SDOGeQVkuxn80QJiIHlwBGGjSBFjPX/KDw==
+  dependencies:
+    "@stripe/stripe-js" "^5.7.0"
+
+"@formspree/react@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@formspree/react/-/react-3.0.0.tgz#9d8cc5cb5c7ef18f0606dbc9415d8c3d21425467"
+  integrity sha512-8PufBZ4l13VmCp9xTGQXwyF6mZtYSecqgTlFuMo5Fbe4Q6zUk7PMU2uKOwIaytZyTyJgFVCvdbpQElPPBKYNLw==
+  dependencies:
+    "@formspree/core" "^4.0.0"
+    "@stripe/react-stripe-js" "^3.1.1"
+    "@stripe/stripe-js" "^5.7.0"
+
 "@heroicons/react@^2.2.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-2.2.0.tgz#0c05124af50434a800773abec8d3af6a297d904b"
@@ -386,6 +402,25 @@
   resolved "https://registry.npmjs.org/@nolyfill/is-core-module/-/is-core-module-1.0.39.tgz"
   integrity sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==
 
+"@prismicio/client@^7.19.0":
+  version "7.19.0"
+  resolved "https://registry.yarnpkg.com/@prismicio/client/-/client-7.19.0.tgz#ad48b3eb6bc6fb4813231acea5be4ff28c13c682"
+  integrity sha512-i7BcHZYG4mvkMPQpJpzYKQKp2vu8MKie1a4Fb1Wx9KNpr5L+bJeiEOQQWkhckqK37PDIzUwogsxx/EgbC829hA==
+  dependencies:
+    imgix-url-builder "^0.0.6"
+
+"@prismicio/next@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@prismicio/next/-/next-2.0.1.tgz#161c02f51c78d919f07dc51a8ecf3b4393d3b861"
+  integrity sha512-wIC7pNd6nmdK3ZzlF1U+XGPRER7vL1zQdasvU3USdxWO1cxjdaK3LgFrpU28YZYH2RaGHmC5Wa303faILH86HQ==
+  dependencies:
+    imgix-url-builder "^0.0.5"
+
+"@react-leaflet/core@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@react-leaflet/core/-/core-3.0.0.tgz#34ccc280ce7d8ac5c09f2b3d5fffded450bdf1a2"
+  integrity sha512-3EWmekh4Nz+pGcr+xjf0KNyYfC3U2JjnkWsh0zcqaexYqmmB5ZhH37kz41JXGmKzpaMZCnPofBBm64i+YrEvGQ==
+
 "@rtsao/scc@^1.1.0":
   version "1.1.0"
   resolved "https://registry.npmjs.org/@rtsao/scc/-/scc-1.1.0.tgz"
@@ -395,6 +430,18 @@
   version "1.12.0"
   resolved "https://registry.npmjs.org/@rushstack/eslint-patch/-/eslint-patch-1.12.0.tgz"
   integrity sha512-5EwMtOqvJMMa3HbmxLlF74e+3/HhwBTMcvt3nqVJgGCozO6hzIPOBlwm8mGVNR9SN2IJpxSnlxczyDjcn7qIyw==
+
+"@stripe/react-stripe-js@^3.1.1":
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/@stripe/react-stripe-js/-/react-stripe-js-3.8.0.tgz#6f64c27091f639a495bac40ea519cedc99390b69"
+  integrity sha512-yd130NpwvJpXK+Tleg5P3iYcg/pwFmPDMbrpBOi++S0h/dQtztsCktJswdAcaBMW143V7mj4PBhBANePP5nAzA==
+  dependencies:
+    prop-types "^15.7.2"
+
+"@stripe/stripe-js@^5.7.0":
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/@stripe/stripe-js/-/stripe-js-5.10.0.tgz#4d1fcf8c59530865fcd59ce910798cc9c973a870"
+  integrity sha512-PTigkxMdMUP6B5ISS7jMqJAKhgrhZwjprDqR1eATtFfh0OpKVNp110xiH+goeVdrJ29/4LeZJR4FaHHWstsu0A==
 
 "@swc/helpers@0.5.15":
   version "0.5.15"
@@ -1709,6 +1756,13 @@ hasown@^2.0.2:
   dependencies:
     function-bind "^1.1.2"
 
+hoist-non-react-statics@^3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
+  integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
+  dependencies:
+    react-is "^16.7.0"
+
 ignore@^5.2.0:
   version "5.3.2"
   resolved "https://registry.npmjs.org/ignore/-/ignore-5.3.2.tgz"
@@ -1718,6 +1772,16 @@ ignore@^7.0.0:
   version "7.0.5"
   resolved "https://registry.npmjs.org/ignore/-/ignore-7.0.5.tgz"
   integrity sha512-Hs59xBNfUIunMFgWAbGX5cq6893IbWg4KnrjbYwX3tx0ztorVgTDA6B2sxf8ejHJ4wz8BqGUMYlnzNBer5NvGg==
+
+imgix-url-builder@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/imgix-url-builder/-/imgix-url-builder-0.0.5.tgz#641e4af7fc1443d3f9f30f3c1331e4c1a2ad9832"
+  integrity sha512-dCx3UlXghtsjySoqVCcHQHRikqDummwQEfKlxBUK/wrMzd+1ox/XX+zhqVuXKMVuZvCc84pVLEJyntQB0OOi/w==
+
+imgix-url-builder@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/imgix-url-builder/-/imgix-url-builder-0.0.6.tgz#5bed6f1a0969f6f3ad91fa876f1c7c39071a0823"
+  integrity sha512-lFVbvaE9vMck8qz9j+y6o7vsyc1vZhdqzWu+Wp/nlnOCi9zAErc31QMkZKYUGMNLLzxOO4YIBAUPndTPah8HFg==
 
 import-fresh@^3.2.1:
   version "3.3.1"
@@ -2024,6 +2088,11 @@ language-tags@^1.0.9:
   integrity sha512-MbjN408fEndfiQXbFQ1vnd+1NoLDsnQW41410oQBXiyXDMYH5z505juWa4KUE1LqxRC7DgOgZDbKLxHIwm27hA==
   dependencies:
     language-subtag-registry "^0.3.20"
+
+leaflet@^1.9.4:
+  version "1.9.4"
+  resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.9.4.tgz#23fae724e282fa25745aff82ca4d394748db7d8d"
+  integrity sha512-nxS1ynzJOmOlHp+iL3FyWqK89GtNL8U8rvlMOsQdTTssxZwCXh8N2NB3GDQOL+YR3XnWyZAxwQixURb+FA74PA==
 
 levn@^0.4.1:
   version "0.4.1"
@@ -2408,7 +2477,7 @@ prelude-ls@^1.2.1:
   resolved "https://registry.npmjs.org/prelude-ls/-/prelude-ls-1.2.1.tgz"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
 
-prop-types@^15.8.1:
+prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -2434,10 +2503,24 @@ react-dom@19.1.0:
   dependencies:
     scheduler "^0.26.0"
 
-react-is@^16.13.1:
+react-google-recaptcha-v3@^1.11.0:
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/react-google-recaptcha-v3/-/react-google-recaptcha-v3-1.11.0.tgz#e65ab48f6f30398dd659c2b0f0f893933ac09aea"
+  integrity sha512-kLQqpz/77m8+trpBwzqcxNtvWZYoZ/YO6Vm2cVTHW8hs80BWUfDpC7RDwuAvpswwtSYApWfaSpIDFWAIBNIYxQ==
+  dependencies:
+    hoist-non-react-statics "^3.3.2"
+
+react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-leaflet@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/react-leaflet/-/react-leaflet-5.0.0.tgz#945d40bad13b69e8606278b19446b00bab57376a"
+  integrity sha512-CWbTpr5vcHw5bt9i4zSlPEVQdTVcML390TjeDG0cK59z1ylexpqC6M1PJFjV8jD7CF+ACBFsLIDs6DRMoLEofw==
+  dependencies:
+    "@react-leaflet/core" "^3.0.0"
 
 react@19.1.0:
   version "19.1.0"
