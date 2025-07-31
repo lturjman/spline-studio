@@ -20,7 +20,7 @@ export default async function Home() {
         </div>
         <div className="absolute z-15 top-10 w-full justify-center items-center mt-80 flex flex-col">
           <Image
-            src="/LogoBlanc.svg"
+            src="/logoBlanc.svg"
             alt="Logo Spline Studio"
             width={300}
             height={100}
