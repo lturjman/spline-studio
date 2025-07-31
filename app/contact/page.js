@@ -1,4 +1,6 @@
-import Map from "./Map";
+import dynamic from "next/dynamic";
+const Map = dynamic(() => import("./Map"), { ssr: false });
+
 import ContactForm from "@/components/ContactForm";
 
 export default function Contact() {
