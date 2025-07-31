@@ -1,4 +1,4 @@
-// import ContactMap from "@/components/ContactMap";
+import ContactMap from "@/components/ContactMap";
 import ContactForm from "@/components/ContactForm";
 
 export default function Contact() {
@@ -10,7 +10,7 @@ export default function Contact() {
           <ContactForm />
         </div>
 
-        {/* <ContactMap /> */}
+        <ContactMap />
       </div>
     </div>
   );
