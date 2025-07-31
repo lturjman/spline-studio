@@ -2,9 +2,9 @@ import Logo from "@/components/DynamicLogo";
 
 export default function Footer() {
   return (
-    <footer className="bg-white p-8 flex flex-col md:flex-row justify-between items-start gap-10 pb-20">
-      {/* Left Column */}
-      <div className="flex flex-col text-black font-bold text-4xl">
+    <footer className="bg-white p-8 pb-10 relative flex flex-col md:flex-row items-start justify-between gap-10">
+      {/* Left column */}
+      <div className="flex flex-col text-black font-bold text-2xl md:text-4xl">
         <a href="#" className="hover:text-emerald-300">
           Spline Studio
         </a>
@@ -27,22 +27,24 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Center Logo */}
-      <div className="w-full md:w-1/3 flex justify-center items-center">
-        <div className="w-80 h-40 flex items-center justify-center text-black font-medium">
-          <Logo />
-        </div>
+      {/* Right column */}
+      <div className="flex flex-col text-black text-right text-2xl md:text-4xl font-extrabold ml-auto">
+        <a href="#" className="hover:text-emerald-300 ">
+          Contact
+        </a>
+        <span className="text-sm md:text-lg font-semibold hover:text-emerald-300">
+          <a href="#">Mentions légales</a>
+        </span>
       </div>
 
-      {/* Right Column */}
-      <div className="flex flex-col items-end text-black">
-        <div className="text-4xl font-extrabold hover:text-emerald-300">
-          {" "}
-          <a href="#">Contact</a>
-        </div>
-        <div className="text-lg font-semibold hover:text-emerald-300">
-          <a href="#">Mentions légales</a>
-        </div>
+      {/* Logo */}
+      <div
+        className="
+    w-full h-10 flex justify-center items-center overflow-hidden
+    md:absolute md:left-1/2 md:top-1/3 md:translate-x-[-50%] md:translate-y-[-50%]
+  "
+      >
+        <Logo />
       </div>
     </footer>
   );

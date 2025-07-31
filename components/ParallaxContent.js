@@ -17,7 +17,7 @@ function useParallax(value, distance) {
 function ImageItem({ id }) {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref });
-  const y = useParallax(scrollYProgress, 300);
+  const y = useParallax(scrollYProgress, 200);
 
   return (
     <section className=" snap-start flex justify-center items-center relative">
@@ -38,7 +38,7 @@ function ImageItem({ id }) {
         initial={{ visibility: "hidden" }}
         animate={{ visibility: "visible" }}
         style={{ y }}
-        className="absolute top-1/2 
+        className="absolute top-1/4
              left-1/2 md:left-[45%] 
              transform -translate-x-1/2 md:translate-x-0 
              -translate-y-1/2 

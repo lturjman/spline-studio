@@ -17,7 +17,6 @@ function MovingCross() {
 
   return (
     <div
-      className="absolute"
       style={{
         position: "relative",
         width: "40px",
@@ -25,7 +24,6 @@ function MovingCross() {
         left: position.x,
         top: position.y,
         transition: "left 0.15s ease, top 0.15s ease",
-        cursor: "pointer",
       }}
     >
       <div

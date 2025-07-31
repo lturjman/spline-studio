@@ -13,30 +13,34 @@ export default async function Home() {
   const page = await client.getSingle("home");
 
   return (
-    <div>
-      <div className="flex">
-        <div className="w-screen h-[90vh] md:h-[70vh] overflow-hidden flex justify-center items-center md:justify-start">
-          <video
-            className="w-full h-full object-cover md:w-auto md:h-full md:translate-x-[-5vw]"
-            src="/SplineStudioPresentation.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-          />
+    <div className="">
+      <div className="relative w-screen h-[90vh] md:h-[70vh] overflow-hidden">
+        {/* Croix placée derrière */}
+        <div className="absolute right-0 top-20 z-10">
+          <MovingCross />
         </div>
-        <MovingCross />
+
+        {/* Vidéo au-dessus */}
+        <video
+          className="relative z-20 w-full h-full object-cover md:w-auto md:h-full md:translate-x-[-5vw]"
+          src="/SplineStudioPresentation.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
       </div>
+
       <WavyText />
       <MovingCross />
       <Parallax />
       <div className="flex justify-center items-center">
-        <h1 className="text-4xl font-bold">Les réalisations</h1>
+        <h1 className="text-4xl font-bold my-10">Les réalisations</h1>
       </div>
       <WrapperColonne />
       <div className="flex justify-center items-center">
         <button
-          className=" bg-emerald-300 text-black font-bold mt-4
+          className=" bg-emerald-300 text-black font-bold mt-10
                px-4 py-2 rounded hover:bg-emerald-400 transition"
         >
           Découvrir tous les films
