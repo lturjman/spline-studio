@@ -1,6 +1,4 @@
-import dynamic from "next/dynamic";
-const Map = dynamic(() => import("./Map"), { ssr: false });
-
+import ContactMap from "./Map";
 import ContactForm from "@/components/ContactForm";
 
 export default function Contact() {
@@ -13,7 +11,7 @@ export default function Contact() {
           <ContactForm />
         </div>
 
-        <Map />
+        <ContactMap />
       </div>
     </div>
   );
