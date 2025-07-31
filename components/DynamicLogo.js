@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import Lottie from "lottie-react";
 import { usePathname } from "next/navigation";
 import animationData from "@/public/GIFSplineStudio3.json";
+import Link from "next/link";
 
 const DynamicLogo = () => {
   const pathname = usePathname();
@@ -37,13 +38,15 @@ const DynamicLogo = () => {
   }, [pathname]);
 
   return (
-    <Lottie
-      lottieRef={lottieRef}
-      animationData={animationData}
-      loop={false}
-      autoplay={false}
-      style={{ width: 200, height: 200 }}
-    />
+    <Link href="/">
+      <Lottie
+        lottieRef={lottieRef}
+        animationData={animationData}
+        loop={false}
+        autoplay={false}
+        style={{ width: 200, height: 200 }}
+      />
+    </Link>
   );
 };
 
