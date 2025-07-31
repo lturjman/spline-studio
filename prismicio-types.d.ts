@@ -185,6 +185,19 @@ interface FilmDocumentData {
   image: prismic.ImageField<never>;
 
   /**
+   * Catégorie field in *Film*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: film.category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  category: prismic.SelectField<
+    "Court métrage" | "Clip" | "Corporate" | "Documentaire"
+  >;
+
+  /**
    * Slice Zone field in *Film*
    *
    * - **Field Type**: Slice Zone

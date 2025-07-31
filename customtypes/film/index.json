@@ -34,6 +34,14 @@
           "thumbnails": []
         }
       },
+      "category": {
+        "type": "Select",
+        "config": {
+          "label": "Catégorie",
+          "placeholder": "",
+          "options": ["Court métrage", "Clip", "Corporate", "Documentaire"]
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
