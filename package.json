@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "slicemachine": "start-slicemachine"
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",
@@ -15,6 +16,8 @@
     "@prismicio/next": "^2.0.1",
     "leaflet": "^1.9.4",
     "lottie-react": "^2.4.1",
+    "@prismicio/react": "^3.2.1",
+    "dotenv": "^17.2.1",
     "motion": "^12.23.7",
     "next": "15.4.3",
     "react": "19.1.0",
@@ -24,9 +27,11 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@slicemachine/adapter-next": "^0.3.81",
     "@tailwindcss/postcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.4.3",
+    "slice-machine-ui": "^2.17.1",
     "tailwindcss": "^4"
   }
 }
