@@ -2,15 +2,15 @@
 import { motion } from "motion/react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import L from "leaflet";
+// import L from "leaflet";
 
 export default function ContactMap() {
-  const customIcon = new L.Icon({
-    iconUrl: "/pin.png",
-    iconSize: [30],
-    iconAnchor: [15, 30],
-    popupAnchor: [0, -30],
-  });
+  // const customIcon = new L.Icon({
+  //   iconUrl: "/pin.png",
+  //   iconSize: [30],
+  //   iconAnchor: [15, 30],
+  //   popupAnchor: [0, -30],
+  // });
   const position = [45.7736, 4.8256];
 
   return (
@@ -35,7 +35,7 @@ export default function ContactMap() {
             url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
             attribution='&copy; <a href="https://carto.com/">CARTO</a>'
           />
-          <Marker position={position} icon={customIcon}>
+          <Marker position={position}>
             <Popup>Spline Studio</Popup>
           </Marker>
         </MapContainer>
