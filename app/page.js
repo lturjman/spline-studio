@@ -19,6 +19,7 @@ export default async function Home() {
         <div className="absolute right-0 top-20 z-10">
           <MovingCross />
         </div>
+        <div>test</div>
 
         {/* Vidéo au-dessus */}
         <video
