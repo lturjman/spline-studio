@@ -2,16 +2,12 @@ import FilmGallery from "@/components/FilmGallery";
 import { createClient } from "@/prismicio";
 import { filter } from "@prismicio/client";
 
-export const revalidate = 60; // Active ISR toutes les 60 secondes
-
 export default async function Films({ searchParams }) {
   const client = createClient();
   const page = await client.getSingle("films");
-
   const filters = [];
-  if (searchParams.category) {
+  if (searchParams.category)
     filters.push(filter.at("my.film.category", searchParams.category));
-  }
 
   const response = await client.getByType("film", { filters });
   const films = response.results;
