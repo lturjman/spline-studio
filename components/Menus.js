@@ -9,7 +9,6 @@ import Logo from "@/components/DynamicLogo";
 const menuItems = [
   { label: "Accueil", path: "/" },
   { label: "Spline Studio", path: "/splinestudio" },
-  { label: "La Croix", path: "/lacroix" },
   { label: "Films", path: "/films" },
   { label: "Backstages", path: "/backstages" },
   { label: "Contact", path: "/contact" },
@@ -26,15 +25,32 @@ export default function Variants() {
       animate={isOpen ? "open" : "closed"}
       custom={height}
       ref={containerRef}
-      className="h-20 fixed bg-white shadow-lg z-20 flex items-center justify-between w-full px-4"
+      className="h-20 fixed bg-white shadow-lg z-25 flex items-center justify-between w-full px-4"
     >
       <div>
         <Logo />
       </div>
 
+      {/* Mobile Menu Toggle */}
       <MenuToggle toggle={() => setIsOpen(!isOpen)} />
+
+      {/* Desktop Menu */}
+      <ul className="hidden md:flex gap-6 items-center">
+        {menuItems.map((item) => (
+          <li key={item.path}>
+            <Link
+              href={item.path}
+              className="text-black font-spaceGrotesk uppercase tracking-tight hover:text-emerald-300"
+            >
+              {item.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+      {/* Mobile Sidebar Menu */}
       <motion.div
-        className="absolute h-screen top-0 right-0 bottom-0  bg-zinc-800 pt-20 z-10"
+        className="absolute h-screen w-screen top-0 right-0 bottom-0 bg-black pt-20 z-10 md:hidden"
         variants={sidebarVariants}
       >
         <Navigation closeMenu={() => setIsOpen(false)} />
@@ -53,7 +69,7 @@ const navVariants = {
 };
 
 const Navigation = ({ closeMenu }) => (
-  <motion.ul className="list-none p-5" variants={navVariants}>
+  <motion.ul className="list-none p-5 space-y-4" variants={navVariants}>
     {menuItems.map((item, i) => (
       <MenuItem
         key={item.path}
@@ -89,7 +105,7 @@ const MenuItem = ({ item, color, closeMenu }) => {
 
   return (
     <motion.li
-      className="flex items-center justify-start gap-4 cursor-pointer"
+      className="cursor-pointer"
       variants={itemVariants}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
@@ -97,7 +113,7 @@ const MenuItem = ({ item, color, closeMenu }) => {
       <Link href={item.path}>
         <span
           onClick={closeMenu}
-          className="text-white text-6xl font-semibold hover:text-emerald-300"
+          className="text-white text-3xl md:text-xl font-spaceGrotesk uppercase tracking-tight hover:text-emerald-300"
         >
           {item.label}
         </span>

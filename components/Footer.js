@@ -1,10 +1,11 @@
 import Logo from "@/components/DynamicLogo";
+import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-white p-8 pb-10 relative flex flex-col md:flex-row items-start justify-between gap-10">
+    <footer className="bg-black p-8 pb-10 relative flex flex-col md:flex-row items-start justify-between w-full">
       {/* Left column */}
-      <div className="flex flex-col text-black font-bold text-2xl md:text-4xl">
+      <div className="flex flex-col text-white font-spaceGrotesk uppercase tracking-tight text-lg z-10">
         <a href="#" className="hover:text-emerald-300">
           Spline Studio
         </a>
@@ -17,7 +18,7 @@ export default function Footer() {
         <a href="#" className="hover:text-emerald-300">
           Backstages
         </a>
-        <div className="text-base font-semibold pt-4">
+        <div className="font-spaceGrotesk uppercase tracking-tight text-sm pt-4">
           <a href="#" className="mr-4 hover:text-emerald-300">
             Instagram
           </a>
@@ -28,23 +29,30 @@ export default function Footer() {
       </div>
 
       {/* Right column */}
-      <div className="flex flex-col text-black text-right text-2xl md:text-4xl font-extrabold ml-auto">
+      <div className="flex flex-col text-white text-right text-lg font-spaceGrotesk uppercase tracking-tight ml-auto z-10">
         <a href="#" className="hover:text-emerald-300 ">
           Contact
         </a>
-        <span className="text-sm md:text-lg font-semibold hover:text-emerald-300">
-          <a href="#">Mentions légales</a>
-        </span>
+        <a href="#" className="text-sm hover:text-emerald-300">
+          Mentions légales
+        </a>
       </div>
 
-      {/* Logo */}
+      {/* Animated GIF Logo */}
       <div
         className="
-    w-full h-10 flex justify-center items-center overflow-hidden
-    md:absolute md:left-1/2 md:top-1/3 md:translate-x-[-50%] md:translate-y-[-50%]
+    z-0 h-10 flex justify-center items-center overflow-hidden 
+    w-[200px] md:w-[300px]
+    md:absolute md:left-1/2 md:top-1/2 md:translate-x-[-50%] md:translate-y-[-50%]
   "
       >
-        <Logo />
+        <Image
+          src="/GIFSplineStudio.gif"
+          alt="Logo animé Spline Studio"
+          width={400}
+          height={100}
+          className="w-full h-auto"
+        />
       </div>
     </footer>
   );

@@ -14,23 +14,20 @@ export default async function Home() {
 
   return (
     <div className="">
-      <div className="relative w-screen h-[90vh] md:h-[90vh] overflow-hidden">
-        <div className="absolute right-0 top-20 z-0">
-          <MovingCross />
-        </div>
-        <div className="absolute z-15 top-10 w-full justify-center items-center mt-80 flex flex-col">
+      <div className="relative w-screen h-[90vh] overflow-hidden">
+        <div className="absolute z-20 top-0 w-full h-full flex flex-col justify-center items-center text-center px-4">
           <Image
             src="/logoBlanc.svg"
             alt="Logo Spline Studio"
             width={300}
             height={100}
           />
-          <div>
-            <WavyText />
-          </div>
+          <h1 className="font-archivoBlack uppercase text-3xl md:text-5xl text-white mt-4 tracking-tight md:px-50">
+            Agence de production audiovisuelle singulière.
+          </h1>
         </div>
         <video
-          className="relative z-10 w-full h-full object-cover md:w-auto md:h-full md:translate-x-[-5vw]"
+          className="absolute z-10 w-full h-full object-cover"
           src="/SplineStudioPresentation.mp4"
           autoPlay
           muted
@@ -39,15 +36,20 @@ export default async function Home() {
         />
       </div>
 
-      <MovingCross />
+      <h2 className="text-black font-archivoBlack uppercase tracking-tight text-4xl text-center m-4">
+        La Croix
+      </h2>
+
       <Parallax />
       <div className="flex justify-center items-center">
-        <h1 className="text-4xl font-bold my-10">Les réalisations</h1>
+        <h1 className="text-4xl my-10 font-archivoBlack uppercase tracking-tight">
+          Les réalisations
+        </h1>
       </div>
       <WrapperColonne />
       <div className="flex justify-center items-center">
         <button
-          className=" bg-emerald-300 text-black font-bold mt-10
+          className=" bg-emerald-300 text-black font-spaceGrotesk uppercase my-10
                px-4 py-2 rounded hover:bg-emerald-400 transition"
         >
           Découvrir tous les films

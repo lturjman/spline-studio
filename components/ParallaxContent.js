@@ -23,7 +23,7 @@ function ImageItem({ id }) {
     <section className=" snap-start flex justify-center items-center relative">
       <div
         ref={ref}
-        className="w-200 h-150 m-5 bg-gray-100 overflow-hidden 
+        className="w-200 h-150 bg-gray-100 overflow-hidden 
                            max-500:w-150 max-500:h-200"
       >
         <Image
@@ -34,6 +34,7 @@ function ImageItem({ id }) {
           className="w-full h-full object-cover"
         />
       </div>
+
       <motion.div
         initial={{ visibility: "hidden" }}
         animate={{ visibility: "visible" }}
@@ -42,31 +43,24 @@ function ImageItem({ id }) {
              left-1/2 md:left-[45%] 
              transform -translate-x-1/2 md:translate-x-0 
              -translate-y-1/2 
-             flex flex-col gap-4 sm:gap-6 
+             flex flex-col gap-4 sm:gap-4
              bg-black/80 p-4 sm:p-6 
              rounded-xl 
-             max-w-[90vw] sm:max-w-[80vw] md:max-w-[600px]"
+             max-w-[90vw] sm:max-w-[80vw] md:max-w-[40vw]"
       >
-        <h2
-          className="text-[#8df0cc] m-0 font-mono 
-                 text-2xl sm:text-4xl md:text-[50px] 
-                 font-bold tracking-[-0.05em] md:tracking-[-0.1em] 
-                 leading-tight"
-        >
-          #LaCroix
-        </h2>
-
         <div
-          className="text-white font-mono font-bold 
-                  text-sm sm:text-base 
-                  tracking-tight leading-snug sm:leading-tight"
+          className="text-white font-spaceGrotesk uppercase 
+                  "
         >
-          {`Notre dernier court métrage en festival. Après son passage à Gérardmer 2024, il sera au Grauman’s Chinese Theatre de Los Angeles lors du ScreamFest 2024. Le film est désormais disponible chez INSOMNIA sur la plateforme Canal+ ...`}
+          Notre dernier court métrage en festival. Après son passage à Gérardmer
+          2024, il sera au Grauman’s Chinese Theatre de Los Angeles lors du
+          ScreamFest 2024. Le film est désormais disponible chez INSOMNIA sur la
+          plateforme Canal+ ...
         </div>
 
         <button
-          className="mt-4 self-start bg-[#8df0cc] text-black font-mono font-bold 
-               px-4 py-2 rounded hover:bg-[#6ed7b5] transition"
+          className="mt-4 self-start bg-emerald-300 text-black font-spaceGrotesk uppercase 
+               px-4 py-2 rounded hover:bg-emerald-400 transition"
         >
           Découvrir la bande-annonce
         </button>

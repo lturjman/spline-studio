@@ -43,7 +43,7 @@ export default function ContactForm() {
           nonce: undefined,
         }}
       >
-        <div className="max-w-md mx-auto">
+        <div className="max-w-md mx-auto font-spaceGrotesk uppercase">
           <AnimatePresence>
             {state.succeeded ? (
               <motion.div

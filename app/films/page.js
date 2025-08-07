@@ -13,8 +13,8 @@ export default async function Films({ searchParams }) {
   const films = response.results;
 
   return (
-    <div>
-      <h1 className="mt-10 text-6xl font-bold m-auto w-full text-center">
+    <div className="bg-black">
+      <h1 className="pt-10 text-4xl font-archivoBlack uppercase tracking-tight m-auto w-full text-center text-white">
         {page.data.title}
       </h1>
       <FilmGallery films={films} selectedCategory={searchParams.category} />

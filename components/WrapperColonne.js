@@ -80,7 +80,7 @@ export default function ImageGallery() {
                 className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center hidden md:block"
               >
                 <a href={img.link}>
-                  <button className="bg-white text-black font-bold px-6 py-2 rounded hover:bg-gray-200 transition">
+                  <button className="bg-white text-black font-spaceGrotesk uppercase px-6 py-2 rounded hover:bg-gray-200 transition">
                     {img.buttonLabel}
                   </button>
                 </a>
