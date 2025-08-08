@@ -10,7 +10,6 @@ const menuItems = [
   { label: "Accueil", path: "/" },
   { label: "Spline Studio", path: "/splinestudio" },
   { label: "Films", path: "/films" },
-  { label: "Backstages", path: "/backstages" },
   { label: "Contact", path: "/contact" },
 ];
 

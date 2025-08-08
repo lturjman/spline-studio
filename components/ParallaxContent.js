@@ -23,13 +23,13 @@ function ImageItem({ id }) {
     <section className=" snap-start flex justify-center items-center relative">
       <div
         ref={ref}
-        className="w-200 h-150 bg-gray-100 overflow-hidden 
+        className="w-[80vw] h-150 bg-gray-100 overflow-hidden 
                            max-500:w-150 max-500:h-200"
       >
         <Image
-          src={`/3.jpg`}
+          src={`/LaCroix.jpg`}
           alt="Images de La Croix"
-          width={400}
+          width={800}
           height={200}
           className="w-full h-full object-cover"
         />
@@ -40,7 +40,7 @@ function ImageItem({ id }) {
         animate={{ visibility: "visible" }}
         style={{ y }}
         className="absolute top-1/4
-             left-1/2 md:left-[45%] 
+             left-1/2 md:left-[55%] 
              transform -translate-x-1/2 md:translate-x-0 
              -translate-y-1/2 
              flex flex-col gap-4 sm:gap-4
