@@ -19,11 +19,19 @@
           "placeholder": ""
         }
       },
-      "video": {
-        "type": "Embed",
+      "category": {
+        "type": "Select",
         "config": {
-          "label": "video",
-          "placeholder": ""
+          "label": "Catégorie",
+          "placeholder": "",
+          "options": [
+            "Court métrage",
+            "Clip",
+            "Corporate",
+            "Documentaire",
+            "Pub",
+            "Pilote série"
+          ]
         }
       },
       "image": {
@@ -34,19 +42,33 @@
           "thumbnails": []
         }
       },
-      "category": {
-        "type": "Select",
+      "show_on_home": {
+        "type": "Boolean",
         "config": {
-          "label": "Catégorie",
-          "placeholder": "",
-          "options": ["Court métrage", "Clip", "Corporate", "Documentaire"]
+          "label": "mise en avant sur la page d'accueil",
+          "placeholder_false": "non",
+          "placeholder_true": "oui",
+          "default_value": false
         }
       },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "credits": {
+              "type": "SharedSlice"
+            },
+            "description": {
+              "type": "SharedSlice"
+            },
+            "video": {
+              "type": "SharedSlice"
+            },
+            "image_gallery": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },
