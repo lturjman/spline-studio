@@ -46,12 +46,14 @@ export default function Footer() {
     md:absolute md:left-1/2 md:top-1/2 md:translate-x-[-50%] md:translate-y-[-50%]
   "
       >
-        <Image
-          src="/GIFSplineStudio.gif"
-          alt="Logo animé Spline Studio"
-          width={400}
-          height={100}
+        <video
+          src="/GIFSplineStudio.webm"
           className="w-full h-auto"
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-label="Logo animé Spline Studio"
         />
       </div>
     </footer>
