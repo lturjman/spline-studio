@@ -8,9 +8,16 @@ import MovingCross from "@/components/MovingCross";
 
 import { createClient } from "@/prismicio";
 
+import { filter } from "@prismicio/client";
+
 export default async function Home() {
   const client = createClient();
   const page = await client.getSingle("home");
+
+  const response = await client.getByType("film", {
+    filters: [filter.at("my.film.show_on_home", true)],
+  });
+  const films = response.results;
 
   return (
     <div className="">
@@ -46,7 +53,9 @@ export default async function Home() {
           Les réalisations
         </h1>
       </div>
-      <WrapperColonne />
+
+      <WrapperColonne films={films} />
+
       <div className="flex justify-center items-center">
         <button
           className=" bg-emerald-300 text-black font-spaceGrotesk uppercase my-10
