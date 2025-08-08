@@ -145,7 +145,11 @@ export type ContactDocument<Lang extends string = string> =
     Lang
   >;
 
-type FilmDocumentDataSlicesSlice = never;
+type FilmDocumentDataSlicesSlice =
+  | CreditsSlice
+  | DescriptionSlice
+  | VideoSlice
+  | ImageGallerySlice;
 
 /**
  * Content for Film documents
@@ -163,15 +167,22 @@ interface FilmDocumentData {
   title: prismic.KeyTextField;
 
   /**
-   * video field in *Film*
+   * Catégorie field in *Film*
    *
-   * - **Field Type**: Embed
+   * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **API ID Path**: film.video
+   * - **API ID Path**: film.category
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/embed
+   * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  video: prismic.EmbedField;
+  category: prismic.SelectField<
+    | "Court métrage"
+    | "Clip"
+    | "Corporate"
+    | "Documentaire"
+    | "Pub"
+    | "Pilote série"
+  >;
 
   /**
    * image field in *Film*
@@ -185,17 +196,16 @@ interface FilmDocumentData {
   image: prismic.ImageField<never>;
 
   /**
-   * Catégorie field in *Film*
+   * mise en avant sur la page d'accueil field in *Film*
    *
-   * - **Field Type**: Select
+   * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **API ID Path**: film.category
+   * - **Default Value**: false
+   * - **API ID Path**: film.show_on_home
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/select
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
-  category: prismic.SelectField<
-    "Court métrage" | "Clip" | "Corporate" | "Documentaire"
-  >;
+  show_on_home: prismic.BooleanField;
 
   /**
    * Slice Zone field in *Film*
@@ -407,11 +417,178 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
+type SplineStudioDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Spline Studio documents
+ */
+interface SplineStudioDocumentData {
+  /**
+   * title field in *Spline Studio*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: spline_studio.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *Spline Studio*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: spline_studio.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<SplineStudioDocumentDataSlicesSlice> /**
+   * Meta Title field in *Spline Studio*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: spline_studio.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Spline Studio*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: spline_studio.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Spline Studio*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: spline_studio.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Spline Studio document from Prismic
+ *
+ * - **API ID**: `spline_studio`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SplineStudioDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<SplineStudioDocumentData>,
+    "spline_studio",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | ContactDocument
   | FilmDocument
   | FilmsDocument
-  | HomeDocument;
+  | HomeDocument
+  | SplineStudioDocument;
+
+/**
+ * Primary content in *Credits → Default → Primary*
+ */
+export interface CreditsSliceDefaultPrimary {
+  /**
+   * crédits field in *Credits → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: credits.default.primary.credits
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  credits: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Credits Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CreditsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CreditsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Credits*
+ */
+type CreditsSliceVariation = CreditsSliceDefault;
+
+/**
+ * Credits Shared Slice
+ *
+ * - **API ID**: `credits`
+ * - **Description**: Credits
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CreditsSlice = prismic.SharedSlice<
+  "credits",
+  CreditsSliceVariation
+>;
+
+/**
+ * Primary content in *Description → Default → Primary*
+ */
+export interface DescriptionSliceDefaultPrimary {
+  /**
+   * description field in *Description → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: description.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Description Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type DescriptionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<DescriptionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Description*
+ */
+type DescriptionSliceVariation = DescriptionSliceDefault;
+
+/**
+ * Description Shared Slice
+ *
+ * - **API ID**: `description`
+ * - **Description**: Description
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type DescriptionSlice = prismic.SharedSlice<
+  "description",
+  DescriptionSliceVariation
+>;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -575,6 +752,110 @@ type HeroSliceVariation = HeroSliceDefault | HeroSliceImageRight;
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
+/**
+ * Item in *ImageGallery → Default → Primary → imageGallery*
+ */
+export interface ImageGallerySliceDefaultPrimaryImagegalleryItem {
+  /**
+   * photo field in *ImageGallery → Default → Primary → imageGallery*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_gallery.default.primary.imagegallery[].photo
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  photo: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *ImageGallery → Default → Primary*
+ */
+export interface ImageGallerySliceDefaultPrimary {
+  /**
+   * imageGallery field in *ImageGallery → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_gallery.default.primary.imagegallery[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  imagegallery: prismic.GroupField<
+    Simplify<ImageGallerySliceDefaultPrimaryImagegalleryItem>
+  >;
+}
+
+/**
+ * Default variation for ImageGallery Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ImageGallerySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImageGallerySliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ImageGallery*
+ */
+type ImageGallerySliceVariation = ImageGallerySliceDefault;
+
+/**
+ * ImageGallery Shared Slice
+ *
+ * - **API ID**: `image_gallery`
+ * - **Description**: ImageGallery
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ImageGallerySlice = prismic.SharedSlice<
+  "image_gallery",
+  ImageGallerySliceVariation
+>;
+
+/**
+ * Primary content in *Video → Default → Primary*
+ */
+export interface VideoSliceDefaultPrimary {
+  /**
+   * video field in *Video → Default → Primary*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video.default.primary.video
+   * - **Documentation**: https://prismic.io/docs/fields/embed
+   */
+  video: prismic.EmbedField;
+}
+
+/**
+ * Default variation for Video Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type VideoSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<VideoSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Video*
+ */
+type VideoSliceVariation = VideoSliceDefault;
+
+/**
+ * Video Shared Slice
+ *
+ * - **API ID**: `video`
+ * - **Description**: Video
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type VideoSlice = prismic.SharedSlice<"video", VideoSliceVariation>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -608,13 +889,33 @@ declare module "@prismicio/client" {
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
+      SplineStudioDocument,
+      SplineStudioDocumentData,
+      SplineStudioDocumentDataSlicesSlice,
       AllDocumentTypes,
+      CreditsSlice,
+      CreditsSliceDefaultPrimary,
+      CreditsSliceVariation,
+      CreditsSliceDefault,
+      DescriptionSlice,
+      DescriptionSliceDefaultPrimary,
+      DescriptionSliceVariation,
+      DescriptionSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceImageRightPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
       HeroSliceImageRight,
+      ImageGallerySlice,
+      ImageGallerySliceDefaultPrimaryImagegalleryItem,
+      ImageGallerySliceDefaultPrimary,
+      ImageGallerySliceVariation,
+      ImageGallerySliceDefault,
+      VideoSlice,
+      VideoSliceDefaultPrimary,
+      VideoSliceVariation,
+      VideoSliceDefault,
     };
   }
 }
