@@ -5,37 +5,6 @@ import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 
-const images = [
-  {
-    id: 1,
-    src: "/1.jpg",
-    label: "Photo film 1",
-    link: "/film/1",
-    buttonLabel: "Voir Film 1",
-  },
-  {
-    id: 2,
-    src: "/2.jpg",
-    label: "Photo film 2",
-    link: "/film/2",
-    buttonLabel: "Voir Film 2",
-  },
-  {
-    id: 3,
-    src: "/3.jpg",
-    label: "Photo film 3",
-    link: "/film/3",
-    buttonLabel: "Voir Film 3",
-  },
-  {
-    id: 4,
-    src: "/4.jpg",
-    label: "Photo film 4",
-    link: "/film/4",
-    buttonLabel: "Découvrir plus de films",
-  },
-];
-
 export default function WrapperColonne({ films }) {
   const [hovered, setHovered] = useState(null);
 
@@ -57,18 +26,19 @@ export default function WrapperColonne({ films }) {
             }}
             transition={{ duration: 0.1, ease: "easeInOut" }}
           >
-            <Image
-              src={film.data.image.url}
-              alt={film.data.image.alt}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 50vw, 33vw"
-            />
-
+            <Link href={`/films/${film.uid}`}>
+              <Image
+                src={film.data.image.url}
+                alt={film.data.image.alt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, 33vw"
+              />
+            </Link>
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center block md:hidden">
               <Link
                 href={`/films/${film.uid}`}
-                className="bg-white text-black font-bold px-4 py-2 text-sm rounded hover:bg-emerald-300 transition font-spaceGrotesk uppercase"
+                className="bg-white text-black font-bold px-4 py-2 text-sm rounded hover:bg-emerald-300 transition font-spaceGrotesk uppercase inline-block"
               >
                 {film.data.title}
               </Link>
@@ -83,7 +53,7 @@ export default function WrapperColonne({ films }) {
               >
                 <Link
                   href={`/films/${film.uid}`}
-                  className="bg-white text-black font-bold px-4 py-2 text-sm rounded hover:bg-emerald-300 transition font-spaceGrotesk uppercase"
+                  className="bg-white text-black font-bold px-4 py-2 text-sm rounded hover:bg-emerald-300 transition font-spaceGrotesk uppercase inline-block"
                 >
                   {film.data.title}
                 </Link>

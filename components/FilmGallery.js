@@ -47,13 +47,15 @@ export default function FilmGallery({ films, selectedCategory }) {
             key={film.uid}
             className="group relative aspect-[3/4] overflow-hidden rounded-xl shadow-md border border-transparent transition-all duration-300  hover:border-white"
           >
-            <Image
-              src={film.data.image.url}
-              alt={film.data.image.alt}
-              fill
-              sizes="(max-width: 768px) 50vw, 25vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-            />
+            <Link href={`/films/${film.uid}`}>
+              <Image
+                src={film.data.image.url}
+                alt={film.data.image.alt}
+                fill
+                sizes="(max-width: 768px) 50vw, 25vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </Link>
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-center">
               <Link
                 href={`/films/${film.uid}`}
