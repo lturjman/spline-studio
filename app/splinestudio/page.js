@@ -14,8 +14,8 @@ export default async function SplineStudio() {
         {page.data.title}
       </Heading>
 
-      {/* <PrismicRichText>{page.data.presentation}</PrismicRichText>
-      <PrismicRichText>{page.data.history}</PrismicRichText> */}
+      <PrismicRichText field={page.data.presentation} />
+      <PrismicRichText field={page.data.history} />
 
       <div className="space-y-10">
         <SliceZone slices={page.data.slices} components={components} />
