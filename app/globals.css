@@ -12,7 +12,7 @@
   --font-mono: var(--font-geist-mono);
   --font-archivoBlack: var(--font-archivo-black);
   --font-spaceGrotesk: var(--font-space-grotesk);
-
+  --font-epilogue: var(--font-epilogue);
 }
 
 @media (prefers-color-scheme: dark) {
