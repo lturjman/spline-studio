@@ -3,6 +3,7 @@
 import * as motion from "motion/react-client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import Logo from "@/components/DynamicLogo";
 
@@ -18,20 +19,47 @@ export default function Variants() {
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
 
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const isFilms = pathname === "/films";
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    if (!isHome) return;
+
+    const handleScroll = () =>
+      setIsScrolled(window.scrollY > window.innerHeight);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isHome]);
+
+  const menuColor = isHome ? (isScrolled ? "black" : "white") : "black";
+  const bgColor = isHome
+    ? isScrolled
+      ? "bg-white shadow-lg transition-all duration-300 ease-in-out"
+      : "bg-transparent transition-all duration-300 ease-in-out"
+    : "bg-white shadow-lg transition-all duration-300 ease-in-out";
+  const logoVariant = isHome ? (isScrolled ? "default" : "v2") : "default";
+
   return (
     <motion.nav
       initial={false}
       animate={isOpen ? "open" : "closed"}
       custom={height}
       ref={containerRef}
-      className="h-20 fixed bg-white shadow-lg z-25 flex items-center justify-between w-full px-4"
+      className={`h-20 fixed z-25 flex items-center justify-between w-full px-4
+       ${bgColor}`}
     >
       <div>
-        <Logo />
+        <Logo variant={logoVariant} />
       </div>
 
       {/* Mobile Menu Toggle */}
-      <MenuToggle toggle={() => setIsOpen(!isOpen)} />
+      <div className="md:hidden z-30">
+        <MenuToggle toggle={() => setIsOpen(!isOpen)} />
+      </div>
 
       {/* Desktop Menu */}
       <ul className="hidden md:flex gap-6 items-center">
@@ -39,7 +67,9 @@ export default function Variants() {
           <li key={item.path}>
             <Link
               href={item.path}
-              className="text-black font-spaceGrotesk uppercase tracking-tight hover:text-emerald-300"
+              className={`font-spaceGrotesk uppercase tracking-tight hover:text-emerald-300 ${
+                menuColor === "black" ? "text-black" : "text-white"
+              }`}
             >
               {item.label}
             </Link>
