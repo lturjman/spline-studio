@@ -11,7 +11,7 @@ const Video = ({ slice }) => {
     >
       <div className="">
         <div
-          className="*:aspect-video my-4 *:w-full *:h-full *:md:max-w-[70vw] *:max-h-[80vh]  flex justify-center "
+          className="*:aspect-video my-4 *:w-full *:h-full container *:max-h-[80vh] mx-auto flex justify-center "
           dangerouslySetInnerHTML={{ __html: slice?.primary?.video?.html }}
         ></div>
       </div>

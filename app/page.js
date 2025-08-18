@@ -20,8 +20,8 @@ export default async function Home() {
   const films = response.results;
 
   return (
-    <div className="">
-      <div className="relative w-screen h-[90vh] overflow-hidden">
+    <div className="-mt-20">
+      <div className="relative w-screen h-screen overflow-hidden">
         <div className="absolute z-20 top-0 w-full h-full flex flex-col justify-center items-center text-center px-4">
           <Image
             src="/logoBlanc.svg"
@@ -34,7 +34,7 @@ export default async function Home() {
           </h1>
         </div>
         <video
-          className="absolute z-10 w-full h-full object-cover"
+          className="absolute z-10 w-full h-full object-cover "
           src="/SplineStudioPresentation.mp4"
           autoPlay
           muted
