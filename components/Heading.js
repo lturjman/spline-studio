@@ -1,4 +1,3 @@
-"use client";
 import { tv } from "tailwind-variants";
 
 const heading = tv({

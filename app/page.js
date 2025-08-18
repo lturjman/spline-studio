@@ -1,20 +1,12 @@
 import Image from "next/image";
-
-import WavyText from "../components/WaveText";
 import Parallax from "../components/ParallaxContent";
 import WrapperColonne from "../components/WrapperColonne";
-import WrapperLigne from "../components/WrapperLigne";
-import MovingCross from "@/components/MovingCross";
-
 import { Heading } from "@/components/Heading";
-
 import { createClient } from "@/prismicio";
-
 import { filter } from "@prismicio/client";
 
 export default async function Home() {
   const client = createClient();
-  const page = await client.getSingle("home");
 
   const response = await client.getByType("film", {
     filters: [filter.at("my.film.show_on_home", true)],

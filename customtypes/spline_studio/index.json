@@ -13,11 +13,44 @@
           "placeholder": ""
         }
       },
+      "presentation": {
+        "type": "StructuredText",
+        "config": {
+          "label": "presentation",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "history": {
+        "type": "StructuredText",
+        "config": {
+          "label": "history",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "giflacroix": {
+        "type": "Image",
+        "config": {
+          "label": "GifLaCroix",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "video": {
+              "type": "SharedSlice"
+            },
+            "image_gallery": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },

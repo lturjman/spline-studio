@@ -58,7 +58,7 @@ export default function Variants() {
       animate={isOpen ? "open" : "closed"}
       custom={height}
       ref={containerRef}
-      className={`font-light h-20 fixed z-25 flex items-center justify-between w-full px-4
+      className={`font-spaceGrotesk font-light h-20 fixed z-25 flex items-center justify-between w-full px-4
        ${bgColor}`}
     >
       <div>
