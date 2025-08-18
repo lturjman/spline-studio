@@ -6,6 +6,8 @@ import WrapperColonne from "../components/WrapperColonne";
 import WrapperLigne from "../components/WrapperLigne";
 import MovingCross from "@/components/MovingCross";
 
+import { Heading } from "@/components/Heading";
+
 import { createClient } from "@/prismicio";
 
 import { filter } from "@prismicio/client";
@@ -29,9 +31,9 @@ export default async function Home() {
             width={300}
             height={100}
           />
-          <h1 className="font-archivoBlack uppercase text-3xl md:text-5xl text-white mt-4 tracking-tight md:px-50">
+          <Heading level={1} className="text-white mx-50">
             Agence de production audiovisuelle singulière.
-          </h1>
+          </Heading>
         </div>
         <video
           className="absolute z-10 w-full h-full object-cover "
@@ -43,22 +45,22 @@ export default async function Home() {
         />
       </div>
 
-      <h2 className="text-black font-archivoBlack uppercase tracking-tight text-4xl text-center m-4">
+      <Heading level={2} className="mt-20">
         La Croix
-      </h2>
+      </Heading>
 
       <Parallax />
       <div className="flex justify-center items-center">
-        <h1 className="text-4xl my-10 font-archivoBlack uppercase tracking-tight">
+        <Heading level={2} className="mt-20">
           Les réalisations
-        </h1>
+        </Heading>
       </div>
 
       <WrapperColonne films={films} />
 
       <div className="flex justify-center items-center">
         <button
-          className=" bg-emerald-300 text-black font-spaceGrotesk uppercase my-10
+          className=" bg-emerald-300 text-black uppercase my-10
                px-4 py-2 rounded hover:bg-emerald-400 transition"
         >
           Découvrir tous les films

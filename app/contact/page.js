@@ -1,5 +1,6 @@
 import ContactForm from "@/components/ContactForm";
 import { createClient } from "@/prismicio";
+import { Heading } from "@/components/Heading";
 
 export default async function Contact() {
   const client = createClient();
@@ -7,15 +8,17 @@ export default async function Contact() {
 
   return (
     <div className=" min-h-screen">
-      <h1 className="my-10 text-3xl font-archivoBlack uppercase tracking-tight m-auto w-full text-center">
+      <Heading level={1} className="pt-10">
+        {" "}
         {page.data.title}
-      </h1>
+      </Heading>
       <div className="flex max-w-4xl mx-auto px-4 justify-center items-center">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
           <div>
-            <h2 className="text-xl font-archivoBlack uppercase tracking-tight text-center md:text-right">
-              Contactez-Nous
-            </h2>
+            <Heading level={2} className="md:text-right mr-0 text-emerald-300 ">
+              SPLINE STUDIO
+            </Heading>
+
             <div className="mt-6 text-center md:text-right font-spaceGrotesk uppercase">
               <span className="font-bold">
                 Spline Studio est une société de production audiovisuelle

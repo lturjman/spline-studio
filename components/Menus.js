@@ -35,12 +35,21 @@ export default function Variants() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isHome]);
 
-  const menuColor = isHome ? (isScrolled ? "black" : "white") : "black";
-  const bgColor = isHome
-    ? isScrolled
-      ? "bg-white shadow-lg transition-all duration-300 ease-in-out"
-      : "bg-transparent transition-all duration-300 ease-in-out"
-    : "bg-white shadow-lg transition-all duration-300 ease-in-out";
+  const menuColor = isFilms
+    ? "white"
+    : isHome
+      ? isScrolled
+        ? "black"
+        : "white"
+      : "black";
+
+  const bgColor = isFilms
+    ? "bg-black text-white transition-all duration-300 ease-in-out"
+    : isHome
+      ? isScrolled
+        ? "bg-white shadow-lg transition-all duration-300 ease-in-out"
+        : "bg-transparent transition-all duration-300 ease-in-out"
+      : "bg-white shadow-lg transition-all duration-300 ease-in-out";
   const logoVariant = isHome ? (isScrolled ? "default" : "v2") : "default";
 
   return (
@@ -49,7 +58,7 @@ export default function Variants() {
       animate={isOpen ? "open" : "closed"}
       custom={height}
       ref={containerRef}
-      className={`h-20 fixed z-25 flex items-center justify-between w-full px-4
+      className={`font-light h-20 fixed z-25 flex items-center justify-between w-full px-4
        ${bgColor}`}
     >
       <div>
@@ -67,7 +76,7 @@ export default function Variants() {
           <li key={item.path}>
             <Link
               href={item.path}
-              className={`font-spaceGrotesk uppercase tracking-tight hover:text-emerald-300 ${
+              className={` uppercase tracking-tight hover:text-emerald-300 ${
                 menuColor === "black" ? "text-black" : "text-white"
               }`}
             >
@@ -142,7 +151,7 @@ const MenuItem = ({ item, color, closeMenu }) => {
       <Link href={item.path}>
         <span
           onClick={closeMenu}
-          className="text-white text-3xl md:text-xl font-spaceGrotesk uppercase tracking-tight hover:text-emerald-300"
+          className="text-white text-3xl md:text-xl uppercase tracking-tight hover:text-emerald-300"
         >
           {item.label}
         </span>

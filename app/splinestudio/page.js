@@ -1,4 +1,5 @@
 import { createClient } from "@/prismicio";
+import { Heading } from "@/components/Heading";
 
 export default async function SplineStudio() {
   const client = createClient();
@@ -6,9 +7,9 @@ export default async function SplineStudio() {
 
   return (
     <div>
-      <h1 className="mt-10 font-bold m-auto w-full text-center font-archivoBlack uppercase tracking-tight text-4xl">
+      <Heading level={1} className="pt-10">
         {page.data.title}
-      </h1>
+      </Heading>
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { createClient } from "@/prismicio";
 import { SliceZone } from "@prismicio/react";
 import { components } from "@/slices";
 import Image from "next/image";
+import { Heading } from "@/components/Heading";
 
 export default async function Films({ params }) {
   const client = createClient();
@@ -10,13 +11,11 @@ export default async function Films({ params }) {
   return (
     <div className="min-h-screen bg-neutral-50 text-neutral-900">
       <div className="text-center max-w-3xl mx-auto px-4 py-10">
-        <h1 className="font-archivoBlack uppercase text-5xl font-extrabold tracking-tight text-neutral-900">
+        <Heading level={1} className="pt-10">
           {page.data.title}
-        </h1>
+        </Heading>
         {page.data.category && (
-          <p className="mt-3 text-neutral-500 tracking-wide uppercase text-sm">
-            {page.data.category}
-          </p>
+          <Heading level={6}>{page.data.category}</Heading>
         )}
       </div>
 

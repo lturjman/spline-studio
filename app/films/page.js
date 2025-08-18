@@ -1,6 +1,7 @@
 import FilmGallery from "@/components/FilmGallery";
 import { createClient } from "@/prismicio";
 import { filter } from "@prismicio/client";
+import { Heading } from "@/components/Heading";
 
 export default async function Films({ searchParams }) {
   const client = createClient();
@@ -14,9 +15,9 @@ export default async function Films({ searchParams }) {
 
   return (
     <div className="bg-black">
-      <h1 className="pt-10 text-4xl font-archivoBlack uppercase tracking-tight m-auto w-full text-center text-white">
+      <Heading level={1} className="text-white m-auto pt-10">
         {page.data.title}
-      </h1>
+      </Heading>
       <FilmGallery films={films} selectedCategory={searchParams.category} />
     </div>
   );
