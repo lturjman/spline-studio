@@ -59,7 +59,7 @@ export default function FilmGallery({ films, selectedCategory }) {
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-center">
               <Link
                 href={`/films/${film.uid}`}
-                className="bg-white text-black font-bold px-4 py-2 text-sm rounded hover:bg-emerald-300 transition font-spaceGrotesk uppercase inline-block break-words text-center"
+                className="bg-white text-black font-bold px-4 py-2 text-sm rounded lg:rounded-full hover:bg-emerald-300 transition-all font-spaceGrotesk uppercase inline-block break-words text-center"
               >
                 {film.data.title}
               </Link>

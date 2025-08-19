@@ -10,7 +10,10 @@ export default async function Films({ searchParams }) {
   if (searchParams.category)
     filters.push(filter.at("my.film.category", searchParams.category));
 
-  const response = await client.getByType("film", { filters });
+  const response = await client.getByType("film", {
+    filters,
+    orderings: [{ field: "my.film.title", direction: "asc" }],
+  });
   const films = response.results;
 
   return (

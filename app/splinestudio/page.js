@@ -13,7 +13,7 @@ export default async function SplineStudio() {
   return (
     <div className="my-10">
       <section className="relative flex flex-col items-center justify-center text-center mt-10">
-        <div className=" relative w-[80vw] lg:w-[40vw] h-[15vh] lg:hover:w-[60vw] transition-all m-auto overflow-hidden rounded-full">
+        <div className=" relative w-[80vw] h-[15vh] transition-all m-auto overflow-hidden rounded-full">
           <div className="absolute inset-0 bg-[url('/MaterielSpline.gif')] bg-cover bg-center bg-fixed"></div>
 
           <div className="absolute inset-0 flex items-center justify-center">
@@ -35,7 +35,7 @@ export default async function SplineStudio() {
           <PrismicRichText field={page.data.presentation} />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center my-10 w-[70vw] m-auto pt-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center my-10 w-[70vw] m-auto">
           <div className="order-1 md:order-2">
             <video
               src="/matierefilmique.mp4"
