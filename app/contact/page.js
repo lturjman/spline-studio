@@ -2,6 +2,7 @@ import ContactForm from "@/components/ContactForm";
 import { createClient } from "@/prismicio";
 import { Heading } from "@/components/Heading";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
+import GoogleReCaptchaWrapper from "@/components/GoogleReCaptchaWrapper";
 
 export default async function Contact() {
   const client = createClient();
@@ -9,13 +10,13 @@ export default async function Contact() {
 
   return (
     <div className=" min-h-screen">
-      <div className=" relative w-[80vw] lg:w-[40vw] h-[15vh] lg:hover:w-[60vw] transition-all m-auto overflow-hidden rounded-full mt-10">
+      <div className=" relative w-[80vw]  h-[15vh] transition-all m-auto overflow-hidden rounded-full mt-10">
         <div className="absolute inset-0 bg-[url('/1.jpg')] bg-cover bg-center bg-fixed"></div>
 
         <div className="absolute inset-0 flex items-center justify-center">
-          <Heading level={1} className=" text-white">
+          <Heading level={1} className=" text-white ">
             {" "}
-            {page.data.title}
+            {/* {page.data.title} */}
           </Heading>
         </div>
       </div>
@@ -75,7 +76,9 @@ export default async function Contact() {
           </div>
 
           <div className="mb-6">
-            <ContactForm />
+            <GoogleReCaptchaWrapper>
+              <ContactForm />
+            </GoogleReCaptchaWrapper>
           </div>
         </div>
       </div>
