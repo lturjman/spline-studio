@@ -10,7 +10,7 @@ export default async function Contact() {
 
   return (
     <div className=" min-h-screen">
-      <div className=" relative w-[90vw] h-[15vh] m-auto overflow-hidden rounded-xl mt-10">
+      <div className=" relative w-[80vw] lg:w-[40vw] h-[15vh] lg:hover:w-[60vw] transition-all m-auto overflow-hidden rounded-full mt-10">
         <div className="absolute inset-0 bg-[url('/1.jpg')] bg-cover bg-center bg-fixed"></div>
 
         <div className="absolute inset-0 flex items-center justify-center">
@@ -75,7 +75,7 @@ export default async function Contact() {
             </div>
           </div>
 
-          <div>
+          <div className="mb-6">
             <ContactForm />
           </div>
         </div>

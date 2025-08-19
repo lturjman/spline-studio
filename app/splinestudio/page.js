@@ -3,23 +3,71 @@ import { Heading } from "@/components/Heading";
 import { SliceZone } from "@prismicio/react";
 import { components } from "@/slices";
 import { PrismicRichText } from "@prismicio/react";
+import Image from "next/image";
+import ImagesSpline from "@/components/ImagesSpline";
+import Link from "next/link";
 
 export default async function SplineStudio() {
   const client = createClient();
   const page = await client.getSingle("spline_studio");
 
   return (
-    <div>
-      <Heading level={1} className="pt-10">
-        {page.data.title}
-      </Heading>
+    <div className="my-10">
+      <section className="relative flex flex-col items-center justify-center text-center mt-10">
+        <div className=" relative w-[80vw] lg:w-[40vw] h-[15vh] lg:hover:w-[60vw] transition-all m-auto overflow-hidden rounded-full">
+          <div className="absolute inset-0 bg-[url('/MaterielSpline.gif')] bg-cover bg-center bg-fixed"></div>
 
-      <PrismicRichText field={page.data.presentation} />
-      <PrismicRichText field={page.data.history} />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <Heading level={1} className=" text-white">
+              {" "}
+              {page.data.title}
+            </Heading>
+          </div>
+        </div>
 
-      <div className="space-y-10">
-        <SliceZone slices={page.data.slices} components={components} />
-      </div>
+        <Heading level={6}> Production audiovisuelle</Heading>
+      </section>
+
+      <section className=" lg:w-6xl mx-auto text-center px-6 space-y-6">
+        <div className=" font-epilogue w-[70vw] m-auto text-xl md:text-3xl uppercase">
+          <PrismicRichText field={page.data.accroche} />
+        </div>
+        <div className="w-[70vw] m-auto mt-6">
+          <PrismicRichText field={page.data.presentation} />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center my-10 w-[70vw] m-auto pt-6">
+          <div className="order-1 md:order-2">
+            <video
+              src="/matierefilmique.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover rounded-xl shadow-lg"
+            />
+          </div>
+
+          <div className="order-2 md:order-1">
+            <div className="text-justify">
+              {" "}
+              <PrismicRichText field={page.data.history} />
+            </div>
+
+            <Link href="https://vimeo.com/595105092/ce74455d29">
+              <button className=" m-auto mt-6 hover:bg-emerald-300 bg-black hover:text-black text-white rounded-full px-6 py-2 lg:w-[20vw] lg:hover:w-[25vw] transition-all">
+                Découvrir notre showreel
+              </button>
+            </Link>
+          </div>
+        </div>
+
+        <ImagesSpline />
+
+        <div>
+          <SliceZone slices={page.data.slices} components={components} />
+        </div>
+      </section>
     </div>
   );
 }

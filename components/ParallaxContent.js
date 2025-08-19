@@ -48,20 +48,14 @@ function ImageItem({ id }) {
              rounded-xl 
              max-w-[90vw] sm:max-w-[80vw] md:max-w-[40vw]"
       >
-        <div
-          className="text-white font-spaceGrotesk uppercase 
-                  "
-        >
+        <div className="text-white">
           Notre dernier court métrage en festival. Après son passage à Gérardmer
           2024, il sera au Grauman’s Chinese Theatre de Los Angeles lors du
           ScreamFest 2024. Le film est désormais disponible chez INSOMNIA sur la
           plateforme Canal+ ...
         </div>
 
-        <button
-          className="mt-4 self-start bg-emerald-300 text-black font-spaceGrotesk uppercase 
-               px-4 py-2 rounded hover:bg-emerald-400 transition"
-        >
+        <button className="mt-4 self-start hover:bg-emerald-300 bg-white transition rounded-full px-6 py-2 ">
           Découvrir la bande-annonce
         </button>
       </motion.div>

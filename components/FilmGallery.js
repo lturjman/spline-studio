@@ -12,12 +12,12 @@ export default function FilmGallery({ films, selectedCategory }) {
 
   return (
     <div className="bg-black px-4 py-8 font-spaceGrotesk uppercase">
-      <div className="mb-4 flex flex-wrap justify-center gap-2">
+      <div className="mb-10 flex flex-wrap justify-center gap-2">
         <Link
           href={{
             pathname: "/films",
           }}
-          className={`px-4 py-2 rounded border hover:bg-emerald-300 hover:border-none hover:text-black ${
+          className={`px-6 py-2 rounded-full border hover:bg-emerald-300 hover:border-none hover:text-black ${
             !selectedCategory ? "bg-white text-black" : "bg-black text-white"
           }`}
         >
@@ -30,7 +30,7 @@ export default function FilmGallery({ films, selectedCategory }) {
               pathname: "/films",
               query: { category },
             }}
-            className={`px-4 py-2 rounded border hover:bg-emerald-300 hover:border-none hover:text-black ${
+            className={`px-6 py-2 rounded-full border hover:bg-emerald-300 hover:border-none hover:text-black ${
               selectedCategory === category
                 ? "bg-white text-black"
                 : "bg-black text-white"

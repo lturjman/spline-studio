@@ -161,7 +161,7 @@ export default function ContactForm() {
                   disabled={state.submitting}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full bg-emerald-300 text-gray-700 font-semibold py-2 px-4 rounded-xl shadow-md hover:bg-emerald-300 transition"
+                  className="w-full bg-emerald-300 text-gray-700 font-semibold py-2 px-4 rounded-full shadow-md hover:bg-emerald-300 transition"
                 >
                   {state.submitting ? "Envoi en cours..." : "Envoyer"}
                 </motion.button>

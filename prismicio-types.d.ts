@@ -417,7 +417,7 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
-type SplineStudioDocumentDataSlicesSlice = VideoSlice | ImageGallerySlice;
+type SplineStudioDocumentDataSlicesSlice = VideoSlice;
 
 /**
  * Content for Spline Studio documents
@@ -433,6 +433,17 @@ interface SplineStudioDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   title: prismic.KeyTextField;
+
+  /**
+   * accroche field in *Spline Studio*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: spline_studio.accroche
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  accroche: prismic.RichTextField;
 
   /**
    * presentation field in *Spline Studio*
@@ -455,17 +466,6 @@ interface SplineStudioDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   history: prismic.RichTextField;
-
-  /**
-   * GifLaCroix field in *Spline Studio*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: spline_studio.giflacroix
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  giflacroix: prismic.ImageField<never>;
 
   /**
    * Slice Zone field in *Spline Studio*

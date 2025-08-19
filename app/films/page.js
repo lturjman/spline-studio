@@ -14,8 +14,8 @@ export default async function Films({ searchParams }) {
   const films = response.results;
 
   return (
-    <div className="bg-black">
-      <Heading level={1} className="text-white m-auto pt-10">
+    <div className="bg-black py-10">
+      <Heading level={1} className="text-white m-auto">
         {page.data.title}
       </Heading>
       <FilmGallery films={films} selectedCategory={searchParams.category} />

@@ -4,6 +4,7 @@ import WrapperColonne from "../components/WrapperColonne";
 import { Heading } from "@/components/Heading";
 import { createClient } from "@/prismicio";
 import { filter } from "@prismicio/client";
+import { FaInstagram, FaLinkedin } from "react-icons/fa";
 
 export default async function Home() {
   const client = createClient();
@@ -16,6 +17,7 @@ export default async function Home() {
   return (
     <div className="-mt-20">
       <div className="relative w-screen h-screen overflow-hidden">
+        {/* Contenu centré */}
         <div className="absolute z-20 top-0 w-full h-full flex flex-col justify-center items-center text-center px-4">
           <Image
             src="/logoBlanc.svg"
@@ -26,6 +28,26 @@ export default async function Home() {
           <Heading level={1} className="text-white mx-50">
             Agence de production audiovisuelle singulière.
           </Heading>
+        </div>
+
+        {/* Réseaux sociaux en bas à droite */}
+        <div className="absolute z-20 bottom-6 right-6 flex space-x-6">
+          <a
+            href="https://www.instagram.com/splinestd/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-pink-500 transition-all duration-300  text-3xl md:text-2xl"
+          >
+            <FaInstagram />
+          </a>
+          <a
+            href="https://www.linkedin.com/company/splinestudio/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-blue-600 transition-all duration-300 text-3xl md:text-2xl"
+          >
+            <FaLinkedin />
+          </a>
         </div>
         <video
           className="absolute z-10 w-full h-full object-cover "
@@ -52,8 +74,8 @@ export default async function Home() {
 
       <div className="flex justify-center items-center">
         <button
-          className=" bg-emerald-300 text-black uppercase my-10
-               px-4 py-2 rounded hover:bg-emerald-400 transition"
+          className=" uppercase my-10
+               hover:bg-emerald-300 bg-black hover:text-black text-white rounded-full px-6 py-2 transition"
         >
           Découvrir tous les films
         </button>

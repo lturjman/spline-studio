@@ -53,7 +53,7 @@ export default function WrapperColonne({ films }) {
               >
                 <Link
                   href={`/films/${film.uid}`}
-                  className="bg-white text-black font-bold px-4 py-2 text-sm rounded hover:bg-emerald-300 transition font-spaceGrotesk uppercase inline-block"
+                  className=" font-bold text-sm  hover:bg-emerald-300 bg-white rounded-full px-6 py-2 transition font-spaceGrotesk uppercase inline-block"
                 >
                   {film.data.title}
                 </Link>
