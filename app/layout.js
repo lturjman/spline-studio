@@ -1,31 +1,7 @@
-import {
-  Geist,
-  Geist_Mono,
-  Archivo_Black,
-  Space_Grotesk,
-  Epilogue,
-} from "next/font/google";
+import { Space_Grotesk, Epilogue } from "next/font/google";
 import "./globals.css";
 import Menus from "../components/Menus";
 import Footer from "../components/Footer";
-import TransitionWrapper from "@/components/TransitionWrapper";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const archivoBlack = Archivo_Black({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-archivo-black",
-  display: "swap",
-});
 
 const epilogue = Epilogue({
   weight: "900",
@@ -48,12 +24,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr">
       <body
-        className={`flex flex-col min-h-screen ${geistSans.variable} ${geistMono.variable} ${archivoBlack.variable} ${spaceGrotesk.variable} ${epilogue.variable} antialiased `}
+        className={`flex flex-col min-h-screen ${spaceGrotesk.variable} ${epilogue.variable} antialiased `}
       >
         <Menus />
 
         <div className="pt-20 flex-1 font-spaceGrotesk">{children}</div>
-        <footer>
+        <footer className="font-spaceGrotesk">
           <Footer />
         </footer>
       </body>

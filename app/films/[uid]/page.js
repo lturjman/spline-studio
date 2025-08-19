@@ -1,7 +1,6 @@
 import { createClient } from "@/prismicio";
 import { SliceZone } from "@prismicio/react";
 import { components } from "@/slices";
-import Image from "next/image";
 import { Heading } from "@/components/Heading";
 
 export default async function Films({ params }) {

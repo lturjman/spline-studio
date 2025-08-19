@@ -5,35 +5,38 @@ export default function Footer() {
   return (
     <footer className="bg-black p-8 pb-10 relative flex flex-col md:flex-row items-start justify-between w-full">
       {/* Left column */}
-      <div className="flex flex-col text-white font-spaceGrotesk uppercase tracking-tight text-lg z-10">
+      <div className="flex flex-col text-white uppercase tracking-tight text-lg z-10">
         <a href="#" className="hover:text-emerald-300">
+          Accueil
+        </a>
+        <a href="/splinestudio" className="hover:text-emerald-300">
           Spline Studio
         </a>
-        <a href="#" className="hover:text-emerald-300">
-          La Croix
-        </a>
-        <a href="#" className="hover:text-emerald-300">
+        <a href="/films" className="hover:text-emerald-300">
           Films
         </a>
-        <a href="#" className="hover:text-emerald-300">
-          Backstages
-        </a>
-        <div className="font-spaceGrotesk uppercase tracking-tight text-sm pt-4">
-          <a href="#" className="mr-4 hover:text-emerald-300">
+        <div className=" uppercase tracking-tight text-sm pt-4">
+          <a
+            href="https://www.instagram.com/splinestd/"
+            className="mr-4 hover:text-emerald-300"
+          >
             Instagram
           </a>
-          <a href="#" className="hover:text-emerald-300">
+          <a
+            href="https://www.linkedin.com/company/splinestudio/"
+            className="hover:text-emerald-300"
+          >
             LinkedIn
           </a>
         </div>
       </div>
 
       {/* Right column */}
-      <div className="flex flex-col text-white text-right text-lg font-spaceGrotesk uppercase tracking-tight ml-auto z-10">
-        <a href="#" className="hover:text-emerald-300 ">
+      <div className="flex flex-col text-white text-right text-lg uppercase tracking-tight ml-auto z-10">
+        <a href="/contact" className="hover:text-emerald-300 ">
           Contact
         </a>
-        <a href="#" className="text-sm hover:text-emerald-300">
+        <a href="/mentionslegales" className="text-sm hover:text-emerald-300">
           Mentions légales
         </a>
       </div>

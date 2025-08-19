@@ -3,7 +3,6 @@ import { Heading } from "@/components/Heading";
 import { SliceZone } from "@prismicio/react";
 import { components } from "@/slices";
 import { PrismicRichText } from "@prismicio/react";
-import Image from "next/image";
 import ImagesSpline from "@/components/ImagesSpline";
 import Link from "next/link";
 
