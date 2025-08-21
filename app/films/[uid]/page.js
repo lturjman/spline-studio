@@ -1,24 +1,26 @@
 import { createClient } from "@/prismicio";
+import { SliceZone } from "@prismicio/react";
+import { components } from "@/slices";
+import { Heading } from "@/components/Heading";
 
 export default async function Films({ params }) {
   const client = createClient();
-
-  const film = await client.getByUID("film", params.uid);
+  const { uid } = await params;
+  const page = await client.getByUID("film", uid);
 
   return (
-    <div>
-      <h1 className="mt-10 text-6xl font-bold m-auto w-full text-center">
-        {film.data.title}
-      </h1>
-      <div className="aspect-video w-full my-4">
-        <iframe
-          src={film.data.video.embed_url}
-          title="Vidéo"
-          className="w-full h-full"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
+    <div className="min-h-screen bg-neutral-50 text-neutral-900">
+      <div className="text-center max-w-3xl mx-auto px-4 py-4">
+        <Heading level={1} className="pt-10">
+          {page.data.title}
+        </Heading>
+        {page.data.category && (
+          <Heading level={6}>{page.data.category}</Heading>
+        )}
+      </div>
+
+      <div className="space-y-10">
+        <SliceZone slices={page.data.slices} components={components} />
       </div>
     </div>
   );

@@ -15,11 +15,12 @@ export const repositoryName =
  *
  * @type {import("@prismicio/client").Route[]}
  */
-// TODO: Update the routes array to match your project's route structure.
+
 const routes = [
-  // Examples:
-  // { type: "homepage", path: "/" },
-  // { type: "page", path: "/:uid" },
+  { type: "home", path: "/" },
+  { type: "films", path: "/films" },
+  { type: "film", path: "/films/:uid" },
+  { type: "contact", path: "/contact" },
 ];
 
 /**

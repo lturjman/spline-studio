@@ -145,7 +145,12 @@ export type ContactDocument<Lang extends string = string> =
     Lang
   >;
 
-type FilmDocumentDataSlicesSlice = never;
+type FilmDocumentDataSlicesSlice =
+  | DossierSlice
+  | CreditsSlice
+  | DescriptionSlice
+  | VideoSlice
+  | ImageGallerySlice;
 
 /**
  * Content for Film documents
@@ -163,15 +168,22 @@ interface FilmDocumentData {
   title: prismic.KeyTextField;
 
   /**
-   * video field in *Film*
+   * Catégorie field in *Film*
    *
-   * - **Field Type**: Embed
+   * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **API ID Path**: film.video
+   * - **API ID Path**: film.category
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/embed
+   * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  video: prismic.EmbedField;
+  category: prismic.SelectField<
+    | "Court métrage"
+    | "Clip"
+    | "Corporate"
+    | "Documentaire"
+    | "Pub"
+    | "Pilote série"
+  >;
 
   /**
    * image field in *Film*
@@ -185,17 +197,16 @@ interface FilmDocumentData {
   image: prismic.ImageField<never>;
 
   /**
-   * Catégorie field in *Film*
+   * mise en avant sur la page d'accueil field in *Film*
    *
-   * - **Field Type**: Select
+   * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **API ID Path**: film.category
+   * - **Default Value**: false
+   * - **API ID Path**: film.show_on_home
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/select
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
-  category: prismic.SelectField<
-    "Court métrage" | "Clip" | "Corporate" | "Documentaire"
-  >;
+  show_on_home: prismic.BooleanField;
 
   /**
    * Slice Zone field in *Film*
@@ -407,11 +418,262 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
+type SplineStudioDocumentDataSlicesSlice = VideoSlice;
+
+/**
+ * Content for Spline Studio documents
+ */
+interface SplineStudioDocumentData {
+  /**
+   * title field in *Spline Studio*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: spline_studio.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * accroche field in *Spline Studio*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: spline_studio.accroche
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  accroche: prismic.RichTextField;
+
+  /**
+   * presentation field in *Spline Studio*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: spline_studio.presentation
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  presentation: prismic.RichTextField;
+
+  /**
+   * history field in *Spline Studio*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: spline_studio.history
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  history: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Spline Studio*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: spline_studio.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<SplineStudioDocumentDataSlicesSlice> /**
+   * Meta Title field in *Spline Studio*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: spline_studio.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Spline Studio*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: spline_studio.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Spline Studio*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: spline_studio.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Spline Studio document from Prismic
+ *
+ * - **API ID**: `spline_studio`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SplineStudioDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<SplineStudioDocumentData>,
+    "spline_studio",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | ContactDocument
   | FilmDocument
   | FilmsDocument
-  | HomeDocument;
+  | HomeDocument
+  | SplineStudioDocument;
+
+/**
+ * Primary content in *Credits → Default → Primary*
+ */
+export interface CreditsSliceDefaultPrimary {
+  /**
+   * crédits field in *Credits → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: credits.default.primary.credits
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  credits: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Credits Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CreditsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CreditsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Credits*
+ */
+type CreditsSliceVariation = CreditsSliceDefault;
+
+/**
+ * Credits Shared Slice
+ *
+ * - **API ID**: `credits`
+ * - **Description**: Credits
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CreditsSlice = prismic.SharedSlice<
+  "credits",
+  CreditsSliceVariation
+>;
+
+/**
+ * Primary content in *Description → Default → Primary*
+ */
+export interface DescriptionSliceDefaultPrimary {
+  /**
+   * description field in *Description → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: description.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Description Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type DescriptionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<DescriptionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Description*
+ */
+type DescriptionSliceVariation = DescriptionSliceDefault;
+
+/**
+ * Description Shared Slice
+ *
+ * - **API ID**: `description`
+ * - **Description**: Description
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type DescriptionSlice = prismic.SharedSlice<
+  "description",
+  DescriptionSliceVariation
+>;
+
+/**
+ * Primary content in *Dossier → Default → Primary*
+ */
+export interface DossierSliceDefaultPrimary {
+  /**
+   * dossier field in *Dossier → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dossier.default.primary.dossier
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  dossier: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Default variation for Dossier Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type DossierSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<DossierSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Dossier*
+ */
+type DossierSliceVariation = DossierSliceDefault;
+
+/**
+ * Dossier Shared Slice
+ *
+ * - **API ID**: `dossier`
+ * - **Description**: Dossier
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type DossierSlice = prismic.SharedSlice<
+  "dossier",
+  DossierSliceVariation
+>;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -575,6 +837,272 @@ type HeroSliceVariation = HeroSliceDefault | HeroSliceImageRight;
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
+/**
+ * Primary content in *Hero2 → Default → Primary*
+ */
+export interface Hero2SliceDefaultPrimary {
+  /**
+   * eyebrowHeadline field in *Hero2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Eyebrow
+   * - **API ID Path**: hero_2.default.primary.eyebrowHeadline
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  eyebrowHeadline: prismic.KeyTextField;
+
+  /**
+   * title field in *Hero2 → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_2.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * description field in *Hero2 → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_2.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * image field in *Hero2 → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_2.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * callToActionLink field in *Hero2 → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_2.default.primary.callToActionLink
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  callToActionLink: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Default variation for Hero2 Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type Hero2SliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<Hero2SliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Hero2 → Image Right → Primary*
+ */
+export interface Hero2SliceImageRightPrimary {
+  /**
+   * eyebrowHeadline field in *Hero2 → Image Right → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Eyebrow
+   * - **API ID Path**: hero_2.imageRight.primary.eyebrowHeadline
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  eyebrowHeadline: prismic.KeyTextField;
+
+  /**
+   * title field in *Hero2 → Image Right → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_2.imageRight.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * description field in *Hero2 → Image Right → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_2.imageRight.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * image field in *Hero2 → Image Right → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_2.imageRight.primary.image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * callToActionLink field in *Hero2 → Image Right → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_2.imageRight.primary.callToActionLink
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  callToActionLink: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Image Right variation for Hero2 Slice
+ *
+ * - **API ID**: `imageRight`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type Hero2SliceImageRight = prismic.SharedSliceVariation<
+  "imageRight",
+  Simplify<Hero2SliceImageRightPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Hero2*
+ */
+type Hero2SliceVariation = Hero2SliceDefault | Hero2SliceImageRight;
+
+/**
+ * Hero2 Shared Slice
+ *
+ * - **API ID**: `hero_2`
+ * - **Description**: Hero
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type Hero2Slice = prismic.SharedSlice<"hero_2", Hero2SliceVariation>;
+
+/**
+ * Item in *ImageGallery → Default → Primary → imageGallery*
+ */
+export interface ImageGallerySliceDefaultPrimaryImagegalleryItem {
+  /**
+   * photo field in *ImageGallery → Default → Primary → imageGallery*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_gallery.default.primary.imagegallery[].photo
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  photo: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *ImageGallery → Default → Primary*
+ */
+export interface ImageGallerySliceDefaultPrimary {
+  /**
+   * imageGallery field in *ImageGallery → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_gallery.default.primary.imagegallery[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  imagegallery: prismic.GroupField<
+    Simplify<ImageGallerySliceDefaultPrimaryImagegalleryItem>
+  >;
+}
+
+/**
+ * Default variation for ImageGallery Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ImageGallerySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImageGallerySliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ImageGallery*
+ */
+type ImageGallerySliceVariation = ImageGallerySliceDefault;
+
+/**
+ * ImageGallery Shared Slice
+ *
+ * - **API ID**: `image_gallery`
+ * - **Description**: ImageGallery
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ImageGallerySlice = prismic.SharedSlice<
+  "image_gallery",
+  ImageGallerySliceVariation
+>;
+
+/**
+ * Primary content in *Video → Default → Primary*
+ */
+export interface VideoSliceDefaultPrimary {
+  /**
+   * video field in *Video → Default → Primary*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video.default.primary.video
+   * - **Documentation**: https://prismic.io/docs/fields/embed
+   */
+  video: prismic.EmbedField;
+}
+
+/**
+ * Default variation for Video Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type VideoSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<VideoSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Video*
+ */
+type VideoSliceVariation = VideoSliceDefault;
+
+/**
+ * Video Shared Slice
+ *
+ * - **API ID**: `video`
+ * - **Description**: Video
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type VideoSlice = prismic.SharedSlice<"video", VideoSliceVariation>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -608,13 +1136,43 @@ declare module "@prismicio/client" {
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
+      SplineStudioDocument,
+      SplineStudioDocumentData,
+      SplineStudioDocumentDataSlicesSlice,
       AllDocumentTypes,
+      CreditsSlice,
+      CreditsSliceDefaultPrimary,
+      CreditsSliceVariation,
+      CreditsSliceDefault,
+      DescriptionSlice,
+      DescriptionSliceDefaultPrimary,
+      DescriptionSliceVariation,
+      DescriptionSliceDefault,
+      DossierSlice,
+      DossierSliceDefaultPrimary,
+      DossierSliceVariation,
+      DossierSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceImageRightPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
       HeroSliceImageRight,
+      Hero2Slice,
+      Hero2SliceDefaultPrimary,
+      Hero2SliceImageRightPrimary,
+      Hero2SliceVariation,
+      Hero2SliceDefault,
+      Hero2SliceImageRight,
+      ImageGallerySlice,
+      ImageGallerySliceDefaultPrimaryImagegalleryItem,
+      ImageGallerySliceDefaultPrimary,
+      ImageGallerySliceVariation,
+      ImageGallerySliceDefault,
+      VideoSlice,
+      VideoSliceDefaultPrimary,
+      VideoSliceVariation,
+      VideoSliceDefault,
     };
   }
 }

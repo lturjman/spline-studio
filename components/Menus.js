@@ -3,15 +3,14 @@
 import * as motion from "motion/react-client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import Logo from "@/components/DynamicLogo";
 
 const menuItems = [
   { label: "Accueil", path: "/" },
   { label: "Spline Studio", path: "/splinestudio" },
-  { label: "La Croix", path: "/lacroix" },
   { label: "Films", path: "/films" },
-  { label: "Backstages", path: "/backstages" },
   { label: "Contact", path: "/contact" },
 ];
 
@@ -20,21 +19,76 @@ export default function Variants() {
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
 
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const isFilms = pathname === "/films";
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    if (!isHome) return;
+
+    const handleScroll = () =>
+      setIsScrolled(window.scrollY > window.innerHeight);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isHome]);
+
+  const menuColor = isFilms
+    ? "white"
+    : isHome
+      ? isScrolled
+        ? "black"
+        : "white"
+      : "black";
+
+  const bgColor = isFilms
+    ? "bg-black text-white transition-all duration-300 ease-in-out"
+    : isHome
+      ? isScrolled
+        ? "bg-white shadow-lg transition-all duration-300 ease-in-out"
+        : "bg-transparent transition-all duration-300 ease-in-out"
+      : "bg-white shadow-lg transition-all duration-300 ease-in-out";
+  const logoVariant = isHome ? (isScrolled ? "default" : "v2") : "default";
+
   return (
     <motion.nav
       initial={false}
       animate={isOpen ? "open" : "closed"}
       custom={height}
       ref={containerRef}
-      className="h-20 fixed bg-white shadow-lg z-20 flex items-center justify-between w-full px-4"
+      className={`font-spaceGrotesk font-light h-20 fixed z-25 flex items-center justify-between w-full px-4
+       ${bgColor}`}
     >
       <div>
-        <Logo />
+        <Logo isDark={(!isFilms && !isHome) || (isHome && isScrolled)} />
       </div>
 
-      <MenuToggle toggle={() => setIsOpen(!isOpen)} />
+      {/* Mobile Menu Toggle */}
+      <div className="md:hidden z-30">
+        <MenuToggle toggle={() => setIsOpen(!isOpen)} />
+      </div>
+
+      {/* Desktop Menu */}
+      <ul className="hidden md:flex gap-6 items-center">
+        {menuItems.map((item) => (
+          <li key={item.path}>
+            <Link
+              href={item.path}
+              className={` uppercase tracking-tight hover:text-emerald-300 ${
+                menuColor === "black" ? "text-black" : "text-white"
+              }`}
+            >
+              {item.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+      {/* Mobile Sidebar Menu */}
       <motion.div
-        className="absolute h-screen top-0 right-0 bottom-0  bg-zinc-800 pt-20 z-10"
+        className="absolute h-screen w-screen top-0 right-0 bottom-0 bg-black pt-20 z-10 md:hidden"
         variants={sidebarVariants}
       >
         <Navigation closeMenu={() => setIsOpen(false)} />
@@ -53,7 +107,7 @@ const navVariants = {
 };
 
 const Navigation = ({ closeMenu }) => (
-  <motion.ul className="list-none p-5" variants={navVariants}>
+  <motion.ul className="list-none p-5 space-y-4" variants={navVariants}>
     {menuItems.map((item, i) => (
       <MenuItem
         key={item.path}
@@ -89,7 +143,7 @@ const MenuItem = ({ item, color, closeMenu }) => {
 
   return (
     <motion.li
-      className="flex items-center justify-start gap-4 cursor-pointer"
+      className="cursor-pointer"
       variants={itemVariants}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
@@ -97,7 +151,7 @@ const MenuItem = ({ item, color, closeMenu }) => {
       <Link href={item.path}>
         <span
           onClick={closeMenu}
-          className="text-white text-6xl font-semibold hover:text-emerald-300"
+          className="text-white text-3xl md:text-xl uppercase tracking-tight hover:text-emerald-300"
         >
           {item.label}
         </span>

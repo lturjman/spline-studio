@@ -1,50 +1,59 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Lottie from "lottie-react";
-import { usePathname } from "next/navigation";
-import animationData from "@/public/GIFSplineStudio3.json";
 import Link from "next/link";
+import whiteAnimationData from "@/public/LogoSSblanc.json";
+import blackAnimationData from "@/public/LogoSSnoir.json";
 
-const DynamicLogo = () => {
+import { usePathname } from "next/navigation";
+
+const DynamicLogo = ({ isDark }) => {
   const pathname = usePathname();
-  const lottieRef = useRef(null);
-  const hasPlayedInitial = useRef(false);
 
-  const playSegment = (start, end) => {
-    if (lottieRef.current) {
-      lottieRef.current.playSegments([start, end], true);
-    }
+  const blackRef = useRef(null);
+  const whiteRef = useRef(null);
+
+  const playWrapAnimation = (ref) => {
+    if (!ref?.current) return;
+
+    ref.current.setSpeed(3);
+    ref.current.playSegments(
+      [
+        [80, 15],
+        [15, 80],
+      ],
+      true
+    );
   };
 
   useEffect(() => {
-    const animation = lottieRef.current;
-
-    // Nettoyage
-    cancelAnimationFrame(animation._watcher);
-    clearTimeout(animation._resetTimeout);
-
-    if (!hasPlayedInitial.current) {
-      // Premier chargement uniquement : 0 → 40
-      playSegment(0, 40);
-      hasPlayedInitial.current = true;
-      return;
-    }
-
-    playSegment(40, 120);
-
-    return () => {
-      cancelAnimationFrame(animation._watcher);
-    };
+    playWrapAnimation(blackRef);
+    playWrapAnimation(whiteRef);
   }, [pathname]);
 
   return (
-    <Link href="/">
+    <Link href="/" aria-label="Accueil">
       <Lottie
-        lottieRef={lottieRef}
-        animationData={animationData}
+        key={`${pathname} black logo`}
+        lottieRef={blackRef}
+        animationData={blackAnimationData}
+        initialSegment={[15, 80]}
         loop={false}
         autoplay={false}
-        style={{ width: 200, height: 200 }}
+        style={{ width: 200, height: 200, cursor: "pointer" }}
+        className={isDark ? "" : "hidden"}
+        onDOMLoaded={() => playWrapAnimation(blackRef)}
+      />
+      <Lottie
+        key={`${pathname} white logo`}
+        lottieRef={whiteRef}
+        animationData={whiteAnimationData}
+        initialSegment={[15, 80]}
+        loop={false}
+        autoplay={false}
+        style={{ width: 200, height: 200, cursor: "pointer" }}
+        className={isDark ? "hidden" : ""}
+        onDOMLoaded={() => playWrapAnimation(whiteRef)}
       />
     </Link>
   );
