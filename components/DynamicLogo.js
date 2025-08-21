@@ -8,34 +8,52 @@ import blackAnimationData from "@/public/LogoSSnoir.json";
 import { usePathname } from "next/navigation";
 
 const DynamicLogo = ({ isDark }) => {
-  const lottieRef = useRef(null);
   const pathname = usePathname();
 
+  const blackRef = useRef(null);
+  const whiteRef = useRef(null);
+
+  const playWrapAnimation = (ref) => {
+    if (!ref?.current) return;
+
+    ref.current.setSpeed(3);
+    ref.current.playSegments(
+      [
+        [80, 15],
+        [15, 80],
+      ],
+      true
+    );
+  };
+
   useEffect(() => {
-    lottieRef.current.setSpeed(2);
-  }, []);
+    playWrapAnimation(blackRef);
+    playWrapAnimation(whiteRef);
+  }, [pathname]);
 
   return (
     <Link href="/" aria-label="Accueil">
       <Lottie
         key={`${pathname} black logo`}
-        lottieRef={lottieRef}
+        lottieRef={blackRef}
         animationData={blackAnimationData}
         initialSegment={[15, 80]}
         loop={false}
-        autoplay={true}
+        autoplay={false}
         style={{ width: 200, height: 200, cursor: "pointer" }}
         className={isDark ? "" : "hidden"}
+        onDOMLoaded={() => playWrapAnimation(blackRef)}
       />
       <Lottie
         key={`${pathname} white logo`}
-        lottieRef={lottieRef}
+        lottieRef={whiteRef}
         animationData={whiteAnimationData}
         initialSegment={[15, 80]}
         loop={false}
-        autoplay={true}
+        autoplay={false}
         style={{ width: 200, height: 200, cursor: "pointer" }}
         className={isDark ? "hidden" : ""}
+        onDOMLoaded={() => playWrapAnimation(whiteRef)}
       />
     </Link>
   );
