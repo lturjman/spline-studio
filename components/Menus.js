@@ -62,7 +62,7 @@ export default function Variants() {
        ${bgColor}`}
     >
       <div>
-        <Logo variant={logoVariant} />
+        <Logo isDark={(!isFilms && !isHome) || (isHome && isScrolled)} />
       </div>
 
       {/* Mobile Menu Toggle */}

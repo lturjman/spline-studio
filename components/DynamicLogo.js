@@ -1,50 +1,41 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Lottie from "lottie-react";
-import { usePathname } from "next/navigation";
-import animationData from "@/public/GIFSplineStudio3.json";
 import Link from "next/link";
+import whiteAnimationData from "@/public/LogoSSblanc.json";
+import blackAnimationData from "@/public/LogoSSnoir.json";
 
-const DynamicLogo = () => {
-  const pathname = usePathname();
+import { usePathname } from "next/navigation";
+
+const DynamicLogo = ({ isDark }) => {
   const lottieRef = useRef(null);
-  const hasPlayedInitial = useRef(false);
-
-  const playSegment = (start, end) => {
-    if (lottieRef.current) {
-      lottieRef.current.playSegments([start, end], true);
-    }
-  };
+  const pathname = usePathname();
 
   useEffect(() => {
-    const animation = lottieRef.current;
-
-    // Nettoyage
-    cancelAnimationFrame(animation._watcher);
-    clearTimeout(animation._resetTimeout);
-
-    if (!hasPlayedInitial.current) {
-      // Premier chargement uniquement : 0 → 40
-      playSegment(0, 40);
-      hasPlayedInitial.current = true;
-      return;
-    }
-
-    playSegment(40, 120);
-
-    return () => {
-      cancelAnimationFrame(animation._watcher);
-    };
-  }, [pathname]);
+    lottieRef.current.setSpeed(2);
+  }, []);
 
   return (
-    <Link href="/">
+    <Link href="/" aria-label="Accueil">
       <Lottie
+        key={`${pathname} black logo`}
         lottieRef={lottieRef}
-        animationData={animationData}
+        animationData={blackAnimationData}
+        initialSegment={[15, 80]}
         loop={false}
-        autoplay={false}
-        style={{ width: 200, height: 200 }}
+        autoplay={true}
+        style={{ width: 200, height: 200, cursor: "pointer" }}
+        className={isDark ? "" : "hidden"}
+      />
+      <Lottie
+        key={`${pathname} white logo`}
+        lottieRef={lottieRef}
+        animationData={whiteAnimationData}
+        initialSegment={[15, 80]}
+        loop={false}
+        autoplay={true}
+        style={{ width: 200, height: 200, cursor: "pointer" }}
+        className={isDark ? "hidden" : ""}
       />
     </Link>
   );
