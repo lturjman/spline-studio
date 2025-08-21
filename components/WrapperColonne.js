@@ -27,13 +27,15 @@ export default function WrapperColonne({ films }) {
             transition={{ duration: 0.1, ease: "easeInOut" }}
           >
             <Link href={`/films/${film.uid}`}>
-              <Image
-                src={film.data.image.url}
-                alt={film.data.image.alt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 50vw, 33vw"
-              />
+              <div className="relative h-full w-full">
+                <Image
+                  src={film.data.image.url}
+                  alt={film.data.image.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                />
+              </div>
             </Link>
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center block md:hidden">
               <Link
