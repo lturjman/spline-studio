@@ -1,0 +1,30 @@
+{
+  "id": "dossier",
+  "type": "SharedSlice",
+  "name": "Dossier",
+  "description": "Dossier",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "dossier": {
+          "type": "Link",
+          "config": {
+            "label": "dossier",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

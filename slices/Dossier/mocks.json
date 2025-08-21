@@ -1,0 +1,18 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"dossier": {
+				"__TYPE__": "LinkContent",
+				"key": "6c44e98e-0302-49f1-9699-75be3839f492",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com",
+					"text": "sight"
+				}
+			}
+		},
+		"items": []
+	}
+]

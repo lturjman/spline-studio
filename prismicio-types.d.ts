@@ -146,6 +146,7 @@ export type ContactDocument<Lang extends string = string> =
   >;
 
 type FilmDocumentDataSlicesSlice =
+  | DossierSlice
   | CreditsSlice
   | DescriptionSlice
   | VideoSlice
@@ -624,6 +625,57 @@ export type DescriptionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Dossier → Default → Primary*
+ */
+export interface DossierSliceDefaultPrimary {
+  /**
+   * dossier field in *Dossier → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dossier.default.primary.dossier
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  dossier: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Default variation for Dossier Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type DossierSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<DossierSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Dossier*
+ */
+type DossierSliceVariation = DossierSliceDefault;
+
+/**
+ * Dossier Shared Slice
+ *
+ * - **API ID**: `dossier`
+ * - **Description**: Dossier
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type DossierSlice = prismic.SharedSlice<
+  "dossier",
+  DossierSliceVariation
+>;
+
+/**
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -1096,6 +1148,10 @@ declare module "@prismicio/client" {
       DescriptionSliceDefaultPrimary,
       DescriptionSliceVariation,
       DescriptionSliceDefault,
+      DossierSlice,
+      DossierSliceDefaultPrimary,
+      DossierSliceVariation,
+      DossierSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceImageRightPrimary,

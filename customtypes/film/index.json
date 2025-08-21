@@ -56,6 +56,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "dossier": {
+              "type": "SharedSlice"
+            },
             "credits": {
               "type": "SharedSlice"
             },
