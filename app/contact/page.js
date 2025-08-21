@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import ContactForm from "@/components/ContactForm";
 import { createClient } from "@/prismicio";
 import { Heading } from "@/components/Heading";
