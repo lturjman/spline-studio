@@ -16,7 +16,7 @@ export default async function Contact() {
         <div className="absolute inset-0 flex items-center justify-center">
           <Heading level={1} className=" text-white ">
             {" "}
-            {/* {page.data.title} */}
+            {page.data.title}
           </Heading>
         </div>
       </div>
