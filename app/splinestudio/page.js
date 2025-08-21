@@ -3,7 +3,7 @@ import { Heading } from "@/components/Heading";
 import { SliceZone } from "@prismicio/react";
 import { components } from "@/slices";
 import { PrismicRichText } from "@prismicio/react";
-import ImagesSpline from "@/components/ImagesSpline";
+import ImagesSpline from "@/components/ImagesGalleryAPropos";
 import Link from "next/link";
 
 export default async function SplineStudio() {

@@ -32,7 +32,7 @@ export default function ImagesSpline() {
   const [hovered, setHovered] = useState(null);
 
   return (
-    <div className="grid grid-cols-1 gap-2 md:flex md:items-center md:justify-center md:gap-4 h-full mx-4">
+    <div className="grid grid-cols-1 gap-2 md:flex md:items-center md:justify-center md:gap-4">
       {films.map((film) => {
         const isActive = hovered === film.id;
         const isInactive = hovered !== null && hovered !== film.id;
