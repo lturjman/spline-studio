@@ -33,7 +33,8 @@ export default function VerticalGallery() {
             <Image
               src={img.src}
               alt={img.label}
-              fill
+              width={1000}
+              height={600}
               className="object-cover"
             />
             <div className="absolute inset-0 bg-black/40 flex items-end p-3">

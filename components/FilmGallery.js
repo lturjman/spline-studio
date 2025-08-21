@@ -43,11 +43,8 @@ export default function FilmGallery({ films, selectedCategory }) {
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
         {films.map((film) => (
-          <div
-            key={film.uid}
-            className="group relative aspect-[3/4] overflow-hidden rounded-xl shadow-md border border-transparent transition-all duration-300  hover:border-white"
-          >
-            <Link href={`/films/${film.uid}`}>
+          <Link href={`/films/${film.uid}`} key={film.uid}>
+            <div className="group relative aspect-[3/4] overflow-hidden rounded-xl shadow-md border border-transparent transition-all duration-300  hover:border-white">
               <Image
                 src={film.data.image.url}
                 alt={film.data.image.alt}
@@ -55,16 +52,14 @@ export default function FilmGallery({ films, selectedCategory }) {
                 sizes="(max-width: 768px) 50vw, 25vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-            </Link>
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-center">
-              <Link
-                href={`/films/${film.uid}`}
-                className="bg-white text-black font-bold px-4 py-2 text-sm rounded lg:rounded-full hover:bg-emerald-300 transition-all font-spaceGrotesk uppercase inline-block break-words text-center"
-              >
-                {film.data.title}
-              </Link>
+
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-center ">
+                <div className=" font-bold text-sm  hover:bg-emerald-300 bg-white rounded lg:rounded-full px-6 py-2 transition font-spaceGrotesk uppercase inline-block">
+                  {film.data.title}
+                </div>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

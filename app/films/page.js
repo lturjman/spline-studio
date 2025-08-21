@@ -7,8 +7,8 @@ export default async function Films({ searchParams }) {
   const client = createClient();
   const page = await client.getSingle("films");
   const filters = [];
-  if (searchParams.category)
-    filters.push(filter.at("my.film.category", searchParams.category));
+  const { category } = await searchParams;
+  if (category) filters.push(filter.at("my.film.category", category));
 
   const response = await client.getByType("film", {
     filters,
@@ -21,7 +21,7 @@ export default async function Films({ searchParams }) {
       <Heading level={1} className="text-white m-auto">
         {page.data.title}
       </Heading>
-      <FilmGallery films={films} selectedCategory={searchParams.category} />
+      <FilmGallery films={films} selectedCategory={category} />
     </div>
   );
 }

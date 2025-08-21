@@ -5,7 +5,8 @@ import { Heading } from "@/components/Heading";
 
 export default async function Films({ params }) {
   const client = createClient();
-  const page = await client.getByUID("film", params.uid);
+  const { uid } = await params;
+  const page = await client.getByUID("film", uid);
 
   return (
     <div className="min-h-screen bg-neutral-50 text-neutral-900">

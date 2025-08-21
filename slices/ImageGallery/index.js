@@ -33,7 +33,7 @@ const ImageGallery = ({ slice }) => {
         return (
           <motion.div
             key={img.id}
-            className="relative w-full overflow-hidden"
+            className="relative w-full h-[30vh] overflow-hidden"
             onHoverStart={() => setHovered(img.id)}
             onHoverEnd={() => setHovered(null)}
             animate={{
