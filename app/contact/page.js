@@ -11,7 +11,7 @@ export default async function Contact() {
   return (
     <div className=" min-h-screen">
       <div className=" relative w-[80vw]  h-[15vh] transition-all m-auto overflow-hidden rounded-full mt-10">
-        <div className="absolute inset-0 bg-[url('/1.jpg')] bg-cover bg-center bg-fixed"></div>
+        <div className="absolute inset-0 bg-[url('/ComboLacroixJade.jpg')] bg-cover bg-center bg-fixed"></div>
 
         <div className="absolute inset-0 flex items-center justify-center">
           <Heading level={1} className=" text-white ">

@@ -7,24 +7,31 @@ import { useState } from "react";
 const films = [
   {
     id: 1,
-    uid: "film-1",
-    image: "/1.jpg",
-    alt: "Film 1",
-    title: "Film 1",
+    uid: "clip",
+    image: "/Maquillage.png",
+    alt: " maquillage clip",
+    title: "Maquillage Clip",
   },
   {
     id: 2,
-    uid: "film-2",
-    image: "/2.jpg",
-    alt: "Film 2",
-    title: "Film 2",
+    uid: "La Chute",
+    image: "/Lachute.png",
+    alt: "La chute fond vert",
+    title: "La chute",
   },
   {
     id: 3,
-    uid: "film-3",
-    image: "/3.jpg",
-    alt: "Film 3",
-    title: "Film 3",
+    uid: "kntc",
+    image: "/kntc.png",
+    alt: "kntc",
+    title: "kntc",
+  },
+  {
+    id: 4,
+    uid: "LaCroix",
+    image: "/LACROIXequipe.png",
+    alt: "La Croix",
+    title: "La Croix",
   },
 ];
 

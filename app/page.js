@@ -30,26 +30,38 @@ export default async function Home() {
             Agence de production audiovisuelle singulière.
           </Heading>
         </div>
+        {/* Ligne du bas avec lien + réseaux sociaux */}
+        <div className="absolute z-20 bottom-6 left-6 right-6 flex justify-between items-center">
+          {/* Lien Showreel à gauche */}
+          <Link
+            href="https://vimeo.com/595105092"
+            target="_blank"
+            className="text-white hover:text-emerald-300 transition-all duration-300 text-sm md:text-base"
+          >
+            Découvrir notre showreel
+          </Link>
 
-        {/* Réseaux sociaux en bas à droite */}
-        <div className="absolute z-20 bottom-6 right-6 flex space-x-6">
-          <a
-            href="https://www.instagram.com/splinestd/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white hover:text-pink-500 transition-all duration-300  text-3xl md:text-2xl"
-          >
-            <FaInstagram />
-          </a>
-          <a
-            href="https://www.linkedin.com/company/splinestudio/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white hover:text-blue-600 transition-all duration-300 text-3xl md:text-2xl"
-          >
-            <FaLinkedin />
-          </a>
+          {/* Réseaux sociaux à droite */}
+          <div className="flex space-x-6">
+            <a
+              href="https://www.instagram.com/splinestd/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-pink-500 transition-all duration-300 text-3xl md:text-2xl"
+            >
+              <FaInstagram />
+            </a>
+            <a
+              href="https://www.linkedin.com/company/splinestudio/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-blue-600 transition-all duration-300 text-3xl md:text-2xl"
+            >
+              <FaLinkedin />
+            </a>
+          </div>
         </div>
+
         <video
           className="absolute z-10 w-full h-full object-cover "
           src="/SplineStudioPresentation.mp4"

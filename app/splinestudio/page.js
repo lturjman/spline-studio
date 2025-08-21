@@ -53,7 +53,7 @@ export default async function SplineStudio() {
               <PrismicRichText field={page.data.history} />
             </div>
 
-            <Link href="https://vimeo.com/595105092/ce74455d29">
+            <Link href="https://vimeo.com/595105092/ce74455d29" target="_blank">
               <button className=" m-auto mt-6 hover:bg-emerald-300 bg-black hover:text-black text-white rounded-full px-6 py-2 lg:w-[20vw] lg:hover:w-[25vw] transition-all">
                 Découvrir notre showreel
               </button>
