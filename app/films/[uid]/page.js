@@ -9,7 +9,7 @@ export default async function Films({ params }) {
 
   return (
     <div className="min-h-screen bg-neutral-50 text-neutral-900">
-      <div className="text-center max-w-3xl mx-auto px-4 py-10">
+      <div className="text-center max-w-3xl mx-auto px-4 py-4">
         <Heading level={1} className="pt-10">
           {page.data.title}
         </Heading>

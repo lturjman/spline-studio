@@ -5,6 +5,7 @@ import { Heading } from "@/components/Heading";
 import { createClient } from "@/prismicio";
 import { filter } from "@prismicio/client";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
+import Link from "next/link";
 
 export default async function Home() {
   const client = createClient();
@@ -72,13 +73,12 @@ export default async function Home() {
 
       <WrapperColonne films={films} />
 
-      <div className="flex justify-center items-center">
-        <button
-          className=" uppercase my-10
-               hover:bg-emerald-300 bg-black hover:text-black text-white rounded-full px-6 py-2 transition"
-        >
-          Découvrir tous les films
-        </button>
+      <div className="flex justify-center items-center my-10">
+        <Link href="/films">
+          <button className="  hover:bg-emerald-300 bg-black hover:text-black text-white rounded-full px-6 py-2 lg:w-[20vw] lg:hover:w-[25vw] transition-all text-center">
+            Découvrir tous les films
+          </button>
+        </Link>
       </div>
     </div>
   );

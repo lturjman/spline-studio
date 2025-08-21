@@ -9,6 +9,7 @@ import {
 } from "motion/react";
 import { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 function useParallax(value, distance) {
   return useTransform(value, [0, 1], [-distance, distance]);
@@ -54,10 +55,11 @@ function ImageItem({ id }) {
           ScreamFest 2024. Le film est désormais disponible chez INSOMNIA sur la
           plateforme Canal+ ...
         </div>
-
-        <button className="mt-4 self-start hover:bg-emerald-300 bg-white transition rounded-full px-6 py-2 ">
-          Découvrir la bande-annonce
-        </button>
+        <Link href="films/la-croix">
+          <button className="mt-4 self-start hover:bg-emerald-300 bg-white transition rounded-full px-6 py-2 ">
+            Découvrir la bande-annonce
+          </button>
+        </Link>
       </motion.div>
     </section>
   );
