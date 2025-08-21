@@ -65,7 +65,7 @@ export default function Footer() {
       </div>
 
       {/* Mention en bas centré */}
-      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-gray-600 text-xs text-center">
+      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-gray-400 text-xs text-center">
         © 2025 - SPLINE Studio – Tous droits réservés
       </div>
     </footer>

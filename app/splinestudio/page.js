@@ -35,10 +35,10 @@ export default async function SplineStudio() {
           <PrismicRichText field={page.data.presentation} />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center my-10 w-[70vw] m-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center my-10 m-auto">
           <div className="order-1 md:order-2">
             <video
-              src="/matierefilmique.mp4"
+              src="/Maolacroix Animation.webm"
               autoPlay
               loop
               muted
