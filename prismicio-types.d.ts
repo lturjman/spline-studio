@@ -209,6 +209,17 @@ interface FilmDocumentData {
   show_on_home: prismic.BooleanField;
 
   /**
+   * PreviewVideo field in *Film*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: film.previewvideo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  previewvideo: prismic.ImageField<never>;
+
+  /**
    * Slice Zone field in *Film*
    *
    * - **Field Type**: Slice Zone

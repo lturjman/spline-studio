@@ -11,9 +11,9 @@ export default async function SplineStudio() {
   const page = await client.getSingle("spline_studio");
 
   return (
-    <div className="my-10">
+    <div className="space-y-15">
       <section className="relative flex flex-col items-center justify-center text-center mt-10">
-        <div className=" relative w-[80vw] h-[15vh] transition-all m-auto overflow-hidden rounded-full">
+        <div className=" relative w-[80vw] h-[15vh] transition-all m-auto overflow-hidden rounded-md">
           <div className="absolute inset-0 bg-[url('/MaterielSpline.gif')] bg-cover bg-center bg-fixed"></div>
 
           <div className="absolute inset-0 flex items-center justify-center">
@@ -23,15 +23,13 @@ export default async function SplineStudio() {
             </Heading>
           </div>
         </div>
-
-        <Heading level={6}> Production audiovisuelle</Heading>
       </section>
 
-      <section className=" lg:w-6xl mx-auto text-center px-6 space-y-6">
+      <section className=" lg:w-6xl mx-auto text-center px-6">
         <div className=" font-epilogue w-[70vw] m-auto text-xl md:text-3xl uppercase">
           <PrismicRichText field={page.data.accroche} />
         </div>
-        <div className="w-[70vw] m-auto mt-6">
+        <div className="w-[70vw] m-auto mt-10">
           <PrismicRichText field={page.data.presentation} />
         </div>
 
@@ -53,9 +51,9 @@ export default async function SplineStudio() {
               <PrismicRichText field={page.data.history} />
             </div>
 
-            <Link href="https://vimeo.com/595105092/ce74455d29" target="_blank">
+            <Link href="/films">
               <button className=" m-auto mt-6 hover:bg-emerald-300 bg-black hover:text-black text-white rounded-full px-6 py-2 lg:w-[20vw] lg:hover:w-[25vw] transition-all">
-                Découvrir notre showreel
+                Découvrir nos films
               </button>
             </Link>
           </div>

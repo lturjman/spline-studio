@@ -2,6 +2,8 @@ import { createClient } from "@/prismicio";
 import { SliceZone } from "@prismicio/react";
 import { components } from "@/slices";
 import { Heading } from "@/components/Heading";
+import Link from "next/link";
+import { SlArrowLeft } from "react-icons/sl";
 
 export default async function Films({ params }) {
   const client = createClient();
@@ -10,10 +12,11 @@ export default async function Films({ params }) {
 
   return (
     <div className="min-h-screen bg-neutral-50 text-neutral-900">
+      <Link href="/films">
+        <SlArrowLeft className="m-6" />
+      </Link>
       <div className="text-center max-w-3xl mx-auto px-4 py-4">
-        <Heading level={1} className="pt-10">
-          {page.data.title}
-        </Heading>
+        <Heading level={1}>{page.data.title}</Heading>
         {page.data.category && (
           <Heading level={6}>{page.data.category}</Heading>
         )}
