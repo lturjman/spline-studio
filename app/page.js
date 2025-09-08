@@ -18,7 +18,7 @@ export default async function Home() {
   return (
     <div className="-mt-20">
       <div className="relative w-screen h-screen overflow-hidden">
-        {/* Contenu centré */}
+        {/* Contenu centré
         <div className="absolute z-20 top-0 w-full h-full flex flex-col justify-center items-center text-center px-4">
           <Image
             src="/logoBlanc.svg"
@@ -29,16 +29,15 @@ export default async function Home() {
           <Heading level={1} className="text-white mx-50">
             Agence de production audiovisuelle singulière.
           </Heading>
-        </div>
-        {/* Ligne du bas avec lien + réseaux sociaux */}
+        </div> */}
+
         <div className="absolute z-20 bottom-6 left-6 right-6 flex justify-between items-center">
-          {/* Lien Showreel à gauche */}
           <Link
-            href="https://vimeo.com/595105092"
+            href="/"
             target="_blank"
-            className="text-white hover:text-emerald-300 transition-all duration-300 text-sm md:text-base"
+            className="text-white hover:text-emerald-300 transition-all duration-300 text-sm md:text-base uppercase"
           >
-            Découvrir notre showreel
+            Agence de production audiovisuelle singulière.
           </Link>
 
           {/* Réseaux sociaux à droite */}

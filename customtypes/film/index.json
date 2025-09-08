@@ -51,6 +51,15 @@
           "default_value": false
         }
       },
+      "previewvideo": {
+        "type": "Link",
+        "config": {
+          "label": "previewVideo",
+          "placeholder": "",
+          "select": "media",
+          "allowText": true
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

@@ -1,0 +1,19 @@
+{
+  "redirects": [
+    {
+      "source": "/societe-production-audiovisuelle-lyonspline-studio-film/",
+      "destination": "/splinestudio",
+      "permanent": true
+    }, 
+        {
+      "source": "/realisations-films-lyon-spline-studio/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "/backstage-societe-production-audiovisuelle-lyon/",
+      "destination": "/contact",
+      "permanent": true
+    }
+  ]
+}

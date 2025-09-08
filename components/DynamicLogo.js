@@ -40,7 +40,7 @@ const DynamicLogo = ({ isDark }) => {
         initialSegment={[15, 80]}
         loop={false}
         autoplay={false}
-        style={{ width: 200, height: 200, cursor: "pointer" }}
+        style={{ width: "200px", height: "100px", cursor: "pointer" }}
         className={isDark ? "" : "hidden"}
         onDOMLoaded={() => playWrapAnimation(blackRef)}
       />
@@ -51,7 +51,7 @@ const DynamicLogo = ({ isDark }) => {
         initialSegment={[15, 80]}
         loop={false}
         autoplay={false}
-        style={{ width: 200, height: 200, cursor: "pointer" }}
+        style={{ width: "200px", height: "100px", cursor: "pointer" }}
         className={isDark ? "hidden" : ""}
         onDOMLoaded={() => playWrapAnimation(whiteRef)}
       />
