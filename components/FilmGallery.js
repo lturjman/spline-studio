@@ -13,26 +13,29 @@ export default function FilmGallery({ films, selectedCategory }) {
     "Pub",
   ];
   const videoRefs = useRef([]);
+  const timeouts = useRef({});
 
   const handleMouseEnter = (index) => {
     const video = videoRefs.current[index];
     if (video) {
       video.currentTime = 0;
-      video.play();
+      video.play().catch(() => {});
 
-      // // stop après 6s
-      // setTimeout(() => {
-      //   if (!video.paused) {
-      //     video.pause();
-      //     video.currentTime = 0;
-      //   }
-      // }, 6000);
+      const timeoutId = setTimeout(() => {
+        if (!video.paused) {
+          video.pause();
+          video.currentTime = 0;
+        }
+      }, 6000);
+
+      timeouts.current[index] = timeoutId;
     }
   };
 
   const handleMouseLeave = (index) => {
     const video = videoRefs.current[index];
     if (video) {
+      clearTimeout(timeouts.current[index]);
       video.pause();
       video.currentTime = 0;
     }
