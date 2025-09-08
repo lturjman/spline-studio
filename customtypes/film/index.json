@@ -52,11 +52,12 @@
         }
       },
       "previewvideo": {
-        "type": "Image",
+        "type": "Link",
         "config": {
-          "label": "PreviewVideo",
-          "constraint": {},
-          "thumbnails": []
+          "label": "previewVideo",
+          "placeholder": "",
+          "select": "media",
+          "allowText": true
         }
       },
       "slices": {
