@@ -33,7 +33,7 @@ export default async function Home() {
 
         <div className="absolute z-20 bottom-6 left-6 right-6 flex justify-between items-center">
           <Link
-            href="https://vimeo.com/595105092"
+            href="/"
             target="_blank"
             className="text-white hover:text-emerald-300 transition-all duration-300 text-sm md:text-base uppercase"
           >
