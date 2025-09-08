@@ -20,7 +20,13 @@ export default function Variants() {
   const { height } = useDimensions(containerRef);
 
   const pathname = usePathname();
-  const isHome = pathname === "/";
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isHome = mounted && pathname === "/";
   const isFilms = pathname === "/films";
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -50,6 +56,7 @@ export default function Variants() {
         ? "bg-white shadow-lg transition-all duration-300 ease-in-out"
         : "bg-transparent transition-all duration-300 ease-in-out"
       : "bg-white shadow-lg transition-all duration-300 ease-in-out";
+
   const logoVariant = isHome ? (isScrolled ? "default" : "v2") : "default";
 
   return (
