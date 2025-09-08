@@ -20,13 +20,13 @@ export default function FilmGallery({ films, selectedCategory }) {
       video.currentTime = 0;
       video.play();
 
-      // stop après 3s
-      setTimeout(() => {
-        if (!video.paused) {
-          video.pause();
-          video.currentTime = 0;
-        }
-      }, 6000);
+      // // stop après 6s
+      // setTimeout(() => {
+      //   if (!video.paused) {
+      //     video.pause();
+      //     video.currentTime = 0;
+      //   }
+      // }, 6000);
     }
   };
 
