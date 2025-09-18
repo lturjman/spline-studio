@@ -146,6 +146,7 @@ export type ContactDocument<Lang extends string = string> =
   >;
 
 type FilmDocumentDataSlicesSlice =
+  | TwinColumnDescriptionSlice
   | DossierSlice
   | CreditsSlice
   | DescriptionSlice
@@ -1073,6 +1074,61 @@ export type ImageGallerySlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *TwinColumnDescription → Default → Primary*
+ */
+export interface TwinColumnDescriptionSliceDefaultPrimary {
+  /**
+   * description gauche field in *TwinColumnDescription → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: twin_column_description.default.primary.left_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  left_description: prismic.RichTextField;
+
+  /**
+   * description droite field in *TwinColumnDescription → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: twin_column_description.default.primary.right_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  right_description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for TwinColumnDescription Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TwinColumnDescriptionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TwinColumnDescriptionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TwinColumnDescription*
+ */
+type TwinColumnDescriptionSliceVariation = TwinColumnDescriptionSliceDefault;
+
+/**
+ * TwinColumnDescription Shared Slice
+ *
+ * - **API ID**: `twin_column_description`
+ * - **Description**: TwinColumnDescription
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TwinColumnDescriptionSlice = prismic.SharedSlice<
+  "twin_column_description",
+  TwinColumnDescriptionSliceVariation
+>;
+
+/**
  * Primary content in *Video → Default → Primary*
  */
 export interface VideoSliceDefaultPrimary {
@@ -1180,6 +1236,10 @@ declare module "@prismicio/client" {
       ImageGallerySliceDefaultPrimary,
       ImageGallerySliceVariation,
       ImageGallerySliceDefault,
+      TwinColumnDescriptionSlice,
+      TwinColumnDescriptionSliceDefaultPrimary,
+      TwinColumnDescriptionSliceVariation,
+      TwinColumnDescriptionSliceDefault,
       VideoSlice,
       VideoSliceDefaultPrimary,
       VideoSliceVariation,

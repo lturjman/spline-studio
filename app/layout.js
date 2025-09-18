@@ -2,6 +2,7 @@ import { Space_Grotesk, Epilogue } from "next/font/google";
 import "./globals.css";
 import Menus from "../components/Menus";
 import Footer from "../components/Footer";
+import { Metadata } from "next";
 
 const epilogue = Epilogue({
   weight: "900",
@@ -18,6 +19,11 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata = {
   title: "Spline Studio",
   description: "Agence de production audiovisuelle singulière",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/pin.png",
+    apple: "/pin.png",
+  },
 };
 
 export default function RootLayout({ children }) {
