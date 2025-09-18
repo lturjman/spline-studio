@@ -52,7 +52,7 @@ export default async function SplineStudio() {
             </div>
 
             <Link href="/films">
-              <button className=" m-auto mt-6 hover:bg-emerald-300 bg-black hover:text-black text-white rounded-full px-6 py-2 lg:w-[20vw] lg:hover:w-[25vw] transition-all">
+              <button className=" m-auto mt-6 hover:bg-emerald-300 bg-black hover:text-black text-white rounded-full px-6 py-2 lg:w-[20vw] transition-all">
                 Découvrir nos films
               </button>
             </Link>

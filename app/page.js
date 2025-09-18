@@ -32,13 +32,9 @@ export default async function Home() {
         </div> */}
 
         <div className="absolute z-20 bottom-6 left-6 right-6 flex justify-between items-center">
-          <Link
-            href="/"
-            target="_blank"
-            className="text-white hover:text-emerald-300 transition-all duration-300 text-sm md:text-base uppercase"
-          >
+          <div className="text-white text-sm md:text-base uppercase">
             Agence de production audiovisuelle singulière.
-          </Link>
+          </div>
 
           {/* Réseaux sociaux à droite */}
           <div className="flex space-x-6">
@@ -86,7 +82,7 @@ export default async function Home() {
 
       <div className="flex justify-center items-center my-10">
         <Link href="/films">
-          <button className="  hover:bg-emerald-300 bg-black hover:text-black text-white rounded-full px-6 py-2 lg:w-[20vw] lg:hover:w-[25vw] transition-all text-center">
+          <button className="  hover:bg-emerald-300 bg-black hover:text-black text-white rounded-full px-6 py-2 lg:w-[20vw] transition-all text-center">
             Découvrir tous les films
           </button>
         </Link>
