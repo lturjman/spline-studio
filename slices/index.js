@@ -9,5 +9,6 @@ export const components = {
   hero: dynamic(() => import("./Hero")),
   hero_2: dynamic(() => import("./Hero2")),
   image_gallery: dynamic(() => import("./ImageGallery")),
+  twin_column_description: dynamic(() => import("./TwinColumnDescription")),
   video: dynamic(() => import("./Video")),
 };

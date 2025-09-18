@@ -65,6 +65,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "twin_column_description": {
+              "type": "SharedSlice"
+            },
             "dossier": {
               "type": "SharedSlice"
             },
