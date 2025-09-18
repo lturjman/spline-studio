@@ -14,6 +14,251 @@
       "source": "/backstage-societe-production-audiovisuelle-lyon/",
       "destination": "/contact",
       "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/contact-spline-studio-societe-production-audiovisuelle-lyon/",
+      "destination": "/contact",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/contact-spline-studio-societe-production-audiovisuelle-lyon/",
+      "destination": "/contact",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/bord-cadre-7-sh-rt-le-film-de-noel/",
+      "destination": "/films/bord-cadre",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/im-ready-clip-cover-chung-ha-by-iam-aleksayyy/",
+      "destination": "/films/im-ready",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/food-reel-2024/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/la-croix/",
+      "destination": "/films/la-croix",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/bord-cadre-2-sh-rt-tu-tes-fait-avoir-par-linflation/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/sh-ort-jacques-devient-cascadeur/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/ifcv-luxe/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/le-royaume-du-queyras-pub-tourisme/",
+      "destination": "/films/le-royaume-de-queyras",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/lyon-events-2024-home-of-excellence/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/sumi-gaeshi-clip/",
+      "destination": "/films/sumi-gaeshi",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/out-of-time-two-faces/",
+      "destination": "/films/two-faces-out-of-time",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/philibert-savours-film-de-marque/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/enphase-energy-film-temoignage-client/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/valrhona-collection-2022/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/mademoiselle-desserts/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/vous-avez-raison-only-lyon/",
+      "destination": "/films/only-lyon-vouas-avez-raison",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/vie-veranda-web-serie-de-marque/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/two-faces-unspeakable-things-clip/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/le-tourisme-daffaire-a-saint-etienne/",
+      "destination": "/films/saint-etienne-tourisme-daffaire",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/ballin-coco-lychee-clip/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/matiere-filmique-showreel-2021/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/saint-etienne-hors-cadre-pub-tourisme-2/",
+      "destination": "/films/st-etienne-hors-cadre",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/la-piscine-serie/",
+      "destination": "/films/agent-rose",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/monter-les-potards-court-metrage/",
+      "destination": "/films/monter-les-potards",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/kntc-duality-clip/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/premier-amour-martin-luminet-clou/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/coeur-martin-luminet-clip/",
+      "destination": "/films/martin-luminet-coeur",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/study-case-winterhalter-x-spline-studio/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/study-case-vie-et-veranda-x-spline-studio/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/study-case-bv-sport-x-spline-studio/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/lys-yyz-clip/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/kntc-melatonin/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/kntc-hunting-hunters-hunting-prays/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/maison-fontaine-x-cake-lucky/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/la-vie-de-chateau-film-lifestyle/",
+      "destination": "/films/la-vie-de-chateau",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/je-suis-une-chute-court-metrage/",
+      "destination": "/films/je-suis-une-chute",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/dealeuse-de-chiffons-teaser/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/matthieu-otto-silence-dor-film-entreprise-documentaire-fiction-spline-studio-societe-production-audiovisuelle-lyon/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/matthieu-otto-film-entreprise-documentaire-fiction-spline-studio-societe-production-audiovisuelle/",
+      "destination": "/films/la-mesure-de-l-or",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/smile-film-court-metrage-fiction-spline-studio-societe-production-audiovisuelle-lyon/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/two-faces-silence-clip-musique-spline-studio-societe-production-audiovisuelle-lyon/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/woodlark-session-interview-not-scientists-musique-spline-studio-societe-production-audiovisuelle-lyon/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/kosmic-session-effigie-moon-interview-musique-spline-studio-societe-production-audiovisuelle-lyon/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/kosmic-session-two-faces-devil-interview-musique-spline-studio-societe-production-audiovisuelle-lyon/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/kosmic-session-leila-interview-musique-spline-studio-societe-production-audiovisuelle-lyon/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/angl-jours-dorage-clip-musique-spline-studio-societe-production-audiovisuelle-lyon/",
+      "destination": "/films",
+      "permanent": true
+    }, 
+        {
+      "source": "https://splinestudio.fr/video/cycles-short-movie-clip-court-metrage-spline-studio-societe-production-audiovisuelle-lyon/",
+      "destination": "/films",
+      "permanent": true
     }
   ]
 }
