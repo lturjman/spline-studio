@@ -2,15 +2,43 @@
 
 import { motion } from "motion/react";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 
 export default function WrapperColonne({ films }) {
   const [hovered, setHovered] = useState(null);
+  const videoRefs = useRef([]);
+  const timeouts = useRef({});
+
+  const handleMouseEnter = (filmId, index) => {
+    setHovered(filmId);
+    const video = videoRefs.current[index];
+    if (video) {
+      video.currentTime = 0;
+      video.play().catch(() => {});
+      const timeoutId = setTimeout(() => {
+        if (!video.paused) {
+          video.pause();
+          video.currentTime = 0;
+        }
+      }, 6000);
+      timeouts.current[index] = timeoutId;
+    }
+  };
+
+  const handleMouseLeave = (index) => {
+    setHovered(null);
+    const video = videoRefs.current[index];
+    if (video) {
+      clearTimeout(timeouts.current[index]);
+      video.pause();
+      video.currentTime = 0;
+    }
+  };
 
   return (
     <div className="grid grid-cols-2 gap-2 md:flex md:items-center md:justify-center md:gap-2 h-full mx-4">
-      {films.map((film) => {
+      {films.map((film, index) => {
         const isActive = hovered === film.id;
         const isInactive = hovered !== null && hovered !== film.id;
 
@@ -19,8 +47,8 @@ export default function WrapperColonne({ films }) {
             layout
             key={film.id}
             className="relative overflow-hidden rounded-xl shadow-lg cursor-pointer h-60 md:h-[75vh] w-full transition-all"
-            onMouseEnter={() => setHovered(film.id)}
-            onMouseLeave={() => setHovered(null)}
+            onMouseEnter={() => handleMouseEnter(film.id, index)}
+            onMouseLeave={() => handleMouseLeave(index)}
             animate={{
               flex: isActive ? 3 : isInactive ? 1 : 1.5,
             }}
@@ -35,6 +63,18 @@ export default function WrapperColonne({ films }) {
                   className="object-cover"
                   sizes="(max-width: 768px) 50vw, 33vw"
                 />
+
+                {film.data.previewvideo?.url && (
+                  <video
+                    ref={(el) => (videoRefs.current[index] = el)}
+                    src={film.data.previewvideo.url}
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+                      isActive ? "opacity-100" : "opacity-0"
+                    }`}
+                    muted
+                    playsInline
+                  />
+                )}
               </div>
             </Link>
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center block md:hidden">
