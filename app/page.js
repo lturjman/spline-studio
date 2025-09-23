@@ -59,7 +59,7 @@ export default async function Home() {
 
         <video
           className="absolute z-10 w-full h-full object-cover "
-          src="/VideoHomepageSpline6.mov"
+          src="/VideoHomepageSpline.webm"
           autoPlay
           muted
           loop
