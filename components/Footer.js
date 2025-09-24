@@ -48,13 +48,13 @@ export default function Footer() {
       {/* Animated GIF Logo */}
       <div
         className="
-          z-0 h-10 flex justify-center items-center overflow-hidden 
+          z-0 h-15 flex justify-center items-center overflow-hidden 
           w-[200px] md:w-[300px]
           md:absolute md:left-1/2 md:top-1/2 md:translate-x-[-50%] md:translate-y-[-50%]
         "
       >
         <video
-          src="/GIFSplineStudio.webm"
+          src="/SplineStudioAnim3840x2160.webm"
           className="w-full h-auto"
           autoPlay
           muted
