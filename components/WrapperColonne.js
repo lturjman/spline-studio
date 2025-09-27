@@ -16,13 +16,6 @@ export default function WrapperColonne({ films }) {
     if (video) {
       video.currentTime = 0;
       video.play().catch(() => {});
-      const timeoutId = setTimeout(() => {
-        if (!video.paused) {
-          video.pause();
-          video.currentTime = 0;
-        }
-      }, 6000);
-      timeouts.current[index] = timeoutId;
     }
   };
 
@@ -30,7 +23,6 @@ export default function WrapperColonne({ films }) {
     setHovered(null);
     const video = videoRefs.current[index];
     if (video) {
-      clearTimeout(timeouts.current[index]);
       video.pause();
       video.currentTime = 0;
     }
@@ -73,6 +65,7 @@ export default function WrapperColonne({ films }) {
                     }`}
                     muted
                     playsInline
+                    loop
                   />
                 )}
               </div>

@@ -29,7 +29,7 @@ function ImageItem({ id }) {
                            max-500:w-150 max-500:h-200"
         >
           <Image
-            src={`/LaCroix.jpg`}
+            src={`/LaCroix.png`}
             alt="Images de La Croix"
             width={800}
             height={200}
@@ -51,10 +51,9 @@ function ImageItem({ id }) {
              max-w-[90vw] sm:max-w-[80vw] md:max-w-[40vw]"
         >
           <div className="text-white">
-            Notre dernier court métrage en festival. Après son passage à
-            Gérardmer 2024, il sera au Grauman’s Chinese Theatre de Los Angeles
-            lors du ScreamFest 2024. Le film est désormais disponible chez
-            INSOMNIA sur la plateforme Canal+ ...
+            Après plus de 70 sélections à l’international et une vingtaine de
+            prix en festival, notre dernier court-métrage La Croix est
+            disponible sur la plateforme Canal+, via Insomnia.
           </div>
 
           <button className="mt-4 self-start hover:bg-emerald-300 bg-white transition rounded-full px-6 py-2 ">

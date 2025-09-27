@@ -20,22 +20,12 @@ export default function FilmGallery({ films, selectedCategory }) {
     if (video) {
       video.currentTime = 0;
       video.play().catch(() => {});
-
-      const timeoutId = setTimeout(() => {
-        if (!video.paused) {
-          video.pause();
-          video.currentTime = 0;
-        }
-      }, 6000);
-
-      timeouts.current[index] = timeoutId;
     }
   };
 
   const handleMouseLeave = (index) => {
     const video = videoRefs.current[index];
     if (video) {
-      clearTimeout(timeouts.current[index]);
       video.pause();
       video.currentTime = 0;
     }
@@ -80,7 +70,7 @@ export default function FilmGallery({ films, selectedCategory }) {
               {/* Image */}
               <Image
                 src={film.data.image.url}
-                alt={film.data.image.alt}
+                alt={film.data.image.alt || film.data.title || "Image du film"}
                 fill
                 sizes="(max-width: 768px) 50vw, 25vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -94,6 +84,7 @@ export default function FilmGallery({ films, selectedCategory }) {
                   className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   muted
                   playsInline
+                  loop
                 >
                   Votre navigateur ne supporte pas la lecture de vidéo.
                 </video>

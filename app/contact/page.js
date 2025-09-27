@@ -13,7 +13,7 @@ export default async function Contact() {
   return (
     <div className=" min-h-screen">
       <div className=" relative w-[80vw]  h-[15vh] transition-all m-auto overflow-hidden rounded-md mt-10">
-        <div className="absolute inset-0 bg-[url('/ComboLacroixJade.jpg')] bg-cover bg-center bg-fixed"></div>
+        <div className="absolute inset-0 bg-[url('/ContactSplineStudio.png')] bg-cover bg-center bg-fixed"></div>
 
         <div className="absolute inset-0 flex items-center justify-center">
           <Heading level={1} className=" text-white ">
@@ -46,16 +46,19 @@ export default async function Contact() {
               <div className="mt-6 text-center md:text-right font-bold">
                 Spline Studio
               </div>
-              <div>86 Boulevard de la Croix Rousse</div>
-              <div>69004 LYON</div>
+              <div className="mt-4">86 Boulevard de la Croix Rousse</div>
+              <div>69004 Lyon</div>
+              <div> - </div>
+              <div>25 Rue Lénine</div>
+              <div>94200 Ivry-sur-Seine</div>
             </div>
 
-            <Heading
+            {/* <Heading
               level={3}
               className="text-lg md:text-xl text-center md:text-right md:mr-0"
             >
               Actus, backstages, ... Suivez-nous sur les réseaux sociaux
-            </Heading>
+            </Heading> */}
 
             <div className="flex space-x-6  justify-center md:justify-end mt-6">
               <a
