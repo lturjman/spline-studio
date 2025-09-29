@@ -14,7 +14,7 @@ export default async function SplineStudio() {
     <div className="space-y-15">
       <section className="relative flex flex-col items-center justify-center text-center mt-10">
         <div className=" relative w-[80vw] h-[15vh] transition-all m-auto overflow-hidden rounded-md">
-          <div className="absolute inset-0 bg-[url('/SplineStudioPage.png')] bg-cover bg-center bg-fixed"></div>
+          <div className="absolute inset-0 bg-[url('/SplinestudioPage.png')] bg-cover bg-center bg-fixed"></div>
 
           <div className="absolute inset-0 flex items-center justify-center">
             <Heading level={1} className=" text-white">
