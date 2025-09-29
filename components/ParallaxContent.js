@@ -31,8 +31,8 @@ function ImageItem({ id }) {
           <Image
             src={`/LaCroix.jpg`}
             alt="Images de La Croix"
-            width={800}
-            height={200}
+            width={2400}
+            height={1200}
             className="w-full h-full object-cover"
           />
         </div>
