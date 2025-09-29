@@ -29,7 +29,7 @@ function ImageItem({ id }) {
                            max-500:w-150 max-500:h-200"
         >
           <Image
-            src={`/LaCroix.png`}
+            src={`/LaCroix.jpg`}
             alt="Images de La Croix"
             width={800}
             height={200}
