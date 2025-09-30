@@ -82,7 +82,7 @@ export default async function Home() {
 
       <div className="flex justify-center items-center my-10">
         <Link href="/films">
-          <button className="  hover:bg-emerald-300 bg-black hover:text-black text-white rounded-full px-6 py-2 lg:w-[20vw] transition-all text-center">
+          <button className="  hover:bg-emerald-300 bg-black hover:text-black text-white rounded-full px-6 py-2 lg:w-[20vw] transition-all text-center dark:bg-emerald-300 dark:text-black dark:hover:bg-white">
             Découvrir tous les films
           </button>
         </Link>

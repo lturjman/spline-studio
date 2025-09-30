@@ -50,7 +50,7 @@ export default function WrapperColonne({ films }) {
               <div className="relative h-full w-full">
                 <Image
                   src={film.data.image.url}
-                  alt={film.data.image.alt}
+                  alt={film.data.image.alt || "Affiche du film"}
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 50vw, 33vw"

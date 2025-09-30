@@ -56,7 +56,7 @@ function ImageItem({ id }) {
             disponible sur la plateforme Canal+, via Insomnia.
           </div>
 
-          <button className="mt-4 self-start hover:bg-emerald-300 bg-white transition rounded-full px-6 py-2 ">
+          <button className="mt-4 self-start hover:bg-emerald-300 bg-white transition rounded-full px-6 py-2 dark:bg-emerald-300 dark:text-black dark:hover:bg-white">
             Découvrir la bande-annonce
           </button>
         </motion.div>

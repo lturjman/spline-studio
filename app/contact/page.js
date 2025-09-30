@@ -11,7 +11,7 @@ export default async function Contact() {
   const page = await client.getSingle("contact");
 
   return (
-    <div className=" min-h-screen">
+    <div className=" min-h-screen lg:min-h-0">
       <div className=" relative w-[80vw]  h-[15vh] transition-all m-auto overflow-hidden rounded-md mt-10">
         <div className="absolute inset-0 bg-[url('/ContactSplineStudio.png')] bg-cover bg-center bg-fixed"></div>
 
@@ -65,7 +65,7 @@ export default async function Contact() {
                 href="https://www.instagram.com/splinestd/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-700 hover:text-pink-500 transition-colors duration-300 text-3xl"
+                className="text-gray-700 hover:text-pink-500 transition-colors duration-300 text-3xl dark:text-white"
               >
                 <FaInstagram />
               </a>
@@ -73,7 +73,7 @@ export default async function Contact() {
                 href="https://www.linkedin.com/company/splinestudio/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-300 text-3xl"
+                className="text-gray-700 hover:text-blue-600 transition-colors duration-300 text-3xl dark:text-white"
               >
                 <FaLinkedin />
               </a>

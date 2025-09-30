@@ -26,10 +26,10 @@ export default async function SplineStudio() {
       </section>
 
       <section className=" lg:w-6xl mx-auto text-center px-6">
-        <div className=" font-epilogue w-[70vw] m-auto text-xl md:text-3xl uppercase">
+        <div className=" font-epilogue  m-auto text-xl md:text-3xl uppercase">
           <PrismicRichText field={page.data.accroche} />
         </div>
-        <div className="w-[70vw] m-auto mt-10">
+        <div className=" m-auto mt-10">
           <PrismicRichText field={page.data.presentation} />
         </div>
 
@@ -52,7 +52,7 @@ export default async function SplineStudio() {
             </div>
 
             <Link href="/films">
-              <button className=" m-auto mt-6 hover:bg-emerald-300 bg-black hover:text-black text-white rounded-full px-6 py-2 lg:w-[20vw] transition-all">
+              <button className=" m-auto mt-6 hover:bg-emerald-300 bg-black hover:text-black text-white rounded-full px-6 py-2 lg:w-[20vw] transition-all dark:bg-emerald-300 dark:text-black dark:hover:bg-white">
                 Découvrir nos films
               </button>
             </Link>
