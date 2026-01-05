@@ -221,6 +221,17 @@ interface FilmDocumentData {
   previewvideo: prismic.LinkToMediaField<prismic.FieldState, never>;
 
   /**
+   * Date de publication field in *Film*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: film.published_at
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/date
+   */
+  published_at: prismic.DateField;
+
+  /**
    * Slice Zone field in *Film*
    *
    * - **Field Type**: Slice Zone

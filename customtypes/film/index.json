@@ -60,6 +60,13 @@
           "allowText": true
         }
       },
+      "published_at": {
+        "type": "Date",
+        "config": {
+          "label": "Date de publication",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

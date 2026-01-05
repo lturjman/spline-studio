@@ -12,7 +12,7 @@ export default async function Films({ searchParams }) {
 
   const response = await client.getByType("film", {
     filters,
-    orderings: [{ field: "my.film.title", direction: "asc" }],
+    orderings: [{ field: "my.film.published_at", direction: "desc" }],
   });
   const films = response.results;
 
